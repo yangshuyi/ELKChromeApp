@@ -1,0 +1,15 @@
+<div class="log-query-analyzer-content container-fluid">
+    <div class="ccc-row row">
+        <div class="col-md-12 query-condition-panel">
+            <input class="btn btn-primary" type="button" value="编辑查询条件" ng-click="openQueryConditionDialog()"/>
+            <div style="width:50px; display: inline-block;"></div>
+            <input class="btn btn-primary" type="button" value="查询" ng-click="query()"/>
+            <div style="flex:1">{{queryResultMessage}}</div>
+        </div>
+    </div>
+    <div class="ccc-row row">
+        <div class="col-md-12 query-result-panel">
+            <pagination-grid options="gridOptions" on-sort-changed="sortChange" on-pagination-change="paginationChange" api="gridApi"></pagination-grid>
+        </div>
+    </div>
+</div>

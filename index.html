@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="elkChromeApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title ng-bind="title">ELK Chrome APP</title>
+  <link href="scss/style.css" rel="stylesheet">
+</head>
+<body ng-keydown="globalKeyDownEventHandler($event)">
+
+<div ui-view></div>
+
+<loading-mask message="数据加载中......"></loading-mask>
+
+<!-- lib -->
+<!-- jQuery -->
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<!-- angular -->
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+<script src="node_modules/restangular/dist/restangular.js"></script>
+<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+
+<!--Select -->
+<script src="node_modules/ui-select/dist/select.js"></script>
+
+<script src="node_modules/moment/moment.js"></script>
+<script src="node_modules/moment/locale/zh-cn.js"></script>
+
+<!-- lodash -->
+<script src="node_modules/lodash/lodash.js"></script>
+
+
+<!-- product -->
+<!-- common -->
+
+<!-- utils -->
+<script src="app/common/utils/modules.js"></script>
+<script src="app/common/utils/constants.js"></script>
+<script src="app/common/utils/url-utils.js"></script>
+
+<!-- component -->
+<script src="app/common/components/input-field/module.js"></script>
+<script src="app/common/components/input-field/label-field.js"></script>
+<script src="app/common/components/input-field/text-field.js"></script>
+<script src="app/common/components/input-field/checkbox-field.js"></script>
+<script src="app/common/components/input-field/password-field.js"></script>
+<script src="app/common/components/input-field/dropdown-field.js"></script>
+
+<script src="app/common/components/notify/module.js"></script>
+<script src="app/common/components/notify/notify-provider.js"></script>
+
+<script src="app/common/components/dialog/module.js"></script>
+<script src="app/common/components/dialog/dialog-directive.js"></script>
+<script src="app/common/components/dialog/dialog-provider.js"></script>
+<script src="app/common/components/dialog/common-dialog-provider.js"></script>
+
+<!--<script src="app/common/components/loading-mask/module.js"></script>-->
+<!--<script src="app/common/components/loading-mask/loading-mask-directive.js"></script>-->
+<!--<script src="app/common/components/loading-mask/loading-mask-provider.js"></script>-->
+
+<!--<script src="app/common/components/panel/module.js"></script>-->
+<!--<script src="app/common/components/panel/panel.js"></script>-->
+
+<script src="app/common/components/grid/module.js"></script>
+<script src="app/common/components/grid/cell-compiler.js"></script>
+<script src="app/common/components/grid/pagination-grid.js"></script>
+<script src="app/common/components/grid/pagination-bar.js"></script>
+
+<!-- business-components -->
+<script src="app/common/business-components/bar/module.js"></script>
+<script src="app/common/business-components/bar/head-bar.js"></script>
+<script src="app/common/business-components/bar/foot-bar.js"></script>
+
+<script src="app/common/business-components/interceptor/module.js"></script>
+<script src="app/common/business-components/interceptor/http-cache-interceptor.js"></script>
+
+<!--<script src="app/common/business-components/model-validation/module.js"></script>-->
+<!--<script src="app/common/business-components/model-validation/modelValidation.js"></script>-->
+<!--<script src="app/common/business-components/model-validation/modelValidationResult-service.js"></script>-->
+<!--<script src="app/common/business-components/model-validation/controlName-directive.js"></script>-->
+<!--<script src="app/common/business-components/model-validation/baseValidateMethodProvider.js"></script>-->
+
+<!-- app -->
+<script src="app/app.js"></script>
+
+<script src="app/default/module.js"></script>
+<script src="app/default/default-ctrl.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/log-query-analyzer/module.js"></script>
+<script src="app/log-query-analyzer/log-query-analyzer-ctrl.js"></script>
+<script src="app/log-query-analyzer/log-query-analyzer-service.js"></script>
+<script src="app/log-query-analyzer/query-condition-dialog-ctrl.js"></script>
+
+
+</body>
+</html>

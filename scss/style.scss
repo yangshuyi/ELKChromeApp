@@ -1,0 +1,57 @@
+@charset "utf-8";
+@import 'common.business-components';
+
+.navbar-default {
+  color: $navbar-default-color;
+
+  .es-server-field {
+    .label {
+      width: 200px;
+    }
+    .field {
+      background-color: transparent;
+
+      .form-control {
+        background-color: transparent;
+        color: white;
+      }
+    }
+    .input-group-inner-addon {
+      color: white;
+    }
+  }
+
+  .connection-status-img {
+    border-radius: $input-field-height;
+    width: $input-field-height;
+    height: $input-field-height;
+
+    border: 1px solid white;
+
+    margin-left: 10px;
+
+    &.connected {
+      background-color: green;
+    }
+    &.unconnected {
+      background-color: red;
+    }
+  }
+
+}
+
+.log-query-analyzer-content {
+  .query-condition-panel {
+    display: flex;
+  }
+
+  .query-result-panel {
+  }
+}
+
+.query-condition-dialog-content {
+  textarea {
+    height:600px;
+    resize: none;
+  }
+}

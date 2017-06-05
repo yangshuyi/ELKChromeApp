@@ -1,0 +1,25 @@
+<div class="pagination-bar ccc-row">
+    <div style="flex:1"></div>
+    <div>共{{options.totalRecordCount}}项，每页</div>
+    <div>
+        <select ng-model="options.pageItemSize" ng-options="di for di in [10, 25, 50]"></select>
+    </div>
+    <div>项</div>
+    <div class="page-bar">
+        <div class="page" ng-click="gotoPage(1)">
+            <div><span class="icon nav-left-icon" ng-class="options.currentPage==1?'not-active':''"></span></div>
+        </div>
+        <div class="page" ng-if="options.currentGroup > 1" ng-click="gotoPage(firstPageInCurrentGroup - options.groupItemSize)">
+            <div><span class="">...</span></div>
+        </div>
+        <div class="page" ng-repeat="page in pageArray" ng-class="page == options.currentPage?'page active':'page'" ng-click="gotoPage(page)">
+            <div><span class="">{{page}}</span></div>
+        </div>
+        <div class="page" ng-if="options.currentGroup < maxGroupNum" ng-click="gotoPage(lastPageInCurrentGroup+1)">
+            <div><span class="">...</span></div>
+        </div>
+        <div class="page" ng-click="gotoPage(maxPageNum)">
+            <div><span class="icon nav-right-icon" ng-class="(options.currentPage==maxPageNum)?'not-active':''"></span></div>
+        </div>
+    </div>
+</div>

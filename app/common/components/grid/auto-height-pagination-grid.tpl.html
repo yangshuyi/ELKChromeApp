@@ -1,0 +1,41 @@
+<div class="pagination-grid auto-height-pagination-grid">
+    <table class="table table-bordered ccc-table">
+        <thead>
+        <tr>
+            <th class="grid-highlight-cell">
+            </th>
+            <th ng-if="options.rowCheckable" class="grid-checkbox-cell">
+                <checkbox-field ng-if="options.multiRowCheckable==true" ng-model="allRowCheckedFlag" on-checked="checkAllRows()" checkbox-field-class="checkbox-field-cell"/>
+            </th>
+            <th ng-repeat="col in columns" ng-style="col.headStyle" ng-class="{'cursor-pointer':col.enableSorting==true}" ng-click="sortData(col, columns)">
+                <div ng-if="col.headTemplate" cell-compiler="col.headTemplate" cell-template-scope="col.headTemplateScope"></div>
+                <div ng-if="!col.headTemplate">{{col.displayName || col.field}}</div>
+                <div ng-if="col.sort == 'desc'"><i class="glyphicon glyphicon-triangle-bottom"></i></div>
+                <div ng-if="col.sort == 'asc'"><i class="glyphicon glyphicon-triangle-top"></i></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="no-data-found" ng-if="options.totalRecordCount == 0">
+        <tr>
+            <td colspan="{{columnCount}}">
+                <div style="height:50px;">{{options.noDataMessage}}</div>
+            </td>
+        </tr>
+        </tbody>
+        <tbody class="data-found" ng-if="options.totalRecordCount > 0">
+        <tr ng-repeat="row in gridData" ng-click="selectRow(row)" ng-class="{'active':row.$selected}">
+            <td class="grid-highlight-cell"></td>
+            <td ng-if="options.rowCheckable" class="grid-checkbox-cell">
+                <div>
+                    <checkbox-field ng-model="row.$checked" on-checked="checkRow(row)" checkbox-field-class="checkbox-field-cell" ng-disabled="row.$checkable == false"/>
+                </div>
+            </td>
+            <td ng-repeat="col in columns" ng-style="col.cellStyle">
+                <div ng-if="col.cellTemplate" cell-compiler="col.cellTemplate"></div>
+                <div ng-if="!col.cellTemplate" title="{{row[col.field]}}">{{row[col.field]}}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination-bar ng-hide="options.totalRecordCount==0" ng-if="options.paginationSupport==true"/>
+</div>

@@ -1,0 +1,29 @@
+<div class="validation-result-dialog">
+    <div class="container">
+        <div ng-repeat="result in validationErrorResultMap" ng-show="result.errorNum>0 || result.warningNum>0">
+            <div id="msg-id-{{result.key}}" class="msg-node" ng-show="isMultiValidationTypeFlag"><span>{{result.title}}提示</span></div>
+            <div ng-repeat="(heading, validators) in result.errors track by $index" class="msg-tab">
+                <div ng-if="validators.length>0" class="msg-head">{{heading}}</div>
+                <div ng-repeat="validator in validators" >
+                    <div ng-repeat="errorMsg in validator.errorMsgArray" class="msg-item">
+                        <i class="glyphicon glyphicon-exclamation-sign" style="color:red"></i>
+                        <div style="display: inline;" ng-dblclick="locateValidator(validator)">{{errorMsg}}</div>
+                    </div>
+                </div>
+            </div>
+            <hr ng-if="result.showDividingLineFlag" class="msg-bar" SIZE=1/>
+            <div ng-repeat="(heading, validators)  in result.warnings track by $index" class="msg-tab">
+                <div ng-if="validators.length>0" class="msg-head">{{heading}}</div>
+                <div ng-repeat="validator in validators">
+                    <div ng-repeat="errorMsg in validator.errorMsgArray" class="msg-item">
+                        <i class="glyphicon glyphicon-exclamation-sign" style="color:#006fb9;"></i>
+                        <div style="display: inline;" ng-dblclick="locateValidator(validator)">{{errorMsg}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="allowSubmitFlag" class="footer">
+        <button class="ccc-btn-default" ng-click="clickSubmitBtn()">提交核损</button>
+    </div>
+</div>

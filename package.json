@@ -1,0 +1,17 @@
+{
+  "name": "ELKChromeApp",
+  "version": "0.0.1",
+  "description": "ELK chrome packaged app",
+  "dependencies": {
+    "angular": "~1.5",
+    "angular-sanitize": "~1.4.x",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "^0.2.15",
+    "moment": "^2.18.1",
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^2.2.0",
+    "lodash": "~4.0.0",
+    "restangular": "~1.5.1",
+    "ui-select": "^0.19.8"
+  }
+}
