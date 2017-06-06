@@ -4,7 +4,7 @@
     </div>
     <div class="query-panel">
         <div class="container-fluid">
-            <div class="ccc-row row">
+            <div class="row">
                 <div class="col-md-12 query-condition-panel">
                     <dropdown-field ng-model="model.selectUserProfile" search-title="请选择模板" option-list="model.userProfiles" option-text="name" option-value="name" style="width: 400px;">
                     </dropdown-field>
@@ -16,7 +16,7 @@
             </div>
             <div class="ccc-row row">
                 <div class="col-md-12 query-result-panel">
-                    <pagination-grid options="gridOptions" on-sort-changed="sortChange" on-pagination-change="paginationChange" api="gridApi"></pagination-grid>
+                    <pagination-grid options="queryResultGridOptions" api="queryResultGridApi" ></pagination-grid>
                 </div>
             </div>
         </div>

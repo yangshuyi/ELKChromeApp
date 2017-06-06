@@ -10,7 +10,6 @@ a {
   outline: none;
 }
 
-
 label {
   font-weight: normal;
 }
@@ -27,6 +26,10 @@ input, textarea {
   outline: none;
 }
 
+label{
+  margin-bottom: 0px;
+}
+
 .form-control[readonly] {
   background-color: $input-bg;
 }
@@ -34,7 +37,7 @@ input, textarea {
 /*** dropdown ***/
 
 .ui-select-bootstrap {
-  &.open .ui-select-toggle{
+  &.open .ui-select-toggle {
     border-color: #66afe9;
   }
 
@@ -152,7 +155,7 @@ input, textarea {
         padding: 0px;
       }
       > .grid-checkbox-cell {
-        width: 50px;
+        width: 30px;
       }
     }
   }
@@ -161,12 +164,18 @@ input, textarea {
       border-top: none;
     }
 
-    &.data-found tr:hover{
-      background-color: $table-bg-active;
-    }
-
     > tr {
       height: 35px;
+
+      &.active {
+        > td.grid-highlight-cell {
+          background-color: $table-head-bg;
+        }
+      }
+
+      &:hover {
+        background-color: $table-bg-active;
+      }
 
       > td {
         padding: 2px 4px;
@@ -176,12 +185,13 @@ input, textarea {
           display: flex;
           align-items: center;
           justify-content: flex-start;
-        }
-        > div.align-right {
-          justify-content: flex-end;
-        }
-        > div.align-center {
-          justify-content: center;
+
+          &.align-right {
+            justify-content: flex-end;
+          }
+          &.align-center {
+            justify-content: center;
+          }
         }
       }
 
@@ -194,11 +204,6 @@ input, textarea {
       }
     }
 
-    > tr.active {
-      > td.grid-highlight-cell {
-        background-color: $table-head-bg;
-      }
-    }
   }
   > tfoot {
     > tr {
@@ -213,38 +218,6 @@ input, textarea {
 /*** nav-bar ***/
 .navbar-default {
   border: none;
-
-  .navbar-left{
-    font-size: $font-size-16;
-  }
-
-  .navbar-right{
-    font-size: $font-size-base;
-  }
-
-  .navbar-nav {
-    > li {
-      > .text {
-        color: $navbar-default-color;
-        border-top: solid $navbar-default-bg 2px;
-        padding: $nav-link-padding;
-        padding-top:    $navbar-padding-vertical;
-        padding-bottom: $navbar-padding-vertical;
-        line-height: 20px;
-      }
-      > a {
-        border-top: solid $navbar-default-bg 2px;
-      }
-      > a:hover, > a:focus {
-        border-top: solid white 2px;
-      }
-    }
-    > .active {
-      > a {
-        border-top: solid white 2px;
-      }
-    }
-  }
 }
 
 .error-msg-content {

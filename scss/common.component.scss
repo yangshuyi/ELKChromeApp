@@ -240,7 +240,7 @@
   background: white;
 
   .head {
-    background: white;
+    background: $table-head-bg;
     font-size: $font-size-16;
 
     padding: 10px 10px;
@@ -414,8 +414,14 @@
 
 /*** pagination grid ***/
 .pagination-grid {
-  .fixed-height-head-container{
+  .fixed-height-head-container {
     background-color: $table-head-bg;
+    padding-right: 19px;
+    border: #e8e8e8 solid 1px;
+
+    > .table {
+      border: none;
+    }
   }
   .fixed-height-content-container {
     border-left: $table-border-color solid 1px;
@@ -424,8 +430,10 @@
     overflow-y: scroll;
 
     > .table {
-      margin-top: -42px;
+      margin-top: -36px;
     }
+
+
   }
 
   .pagination-bar {
@@ -480,6 +488,47 @@
           color: white;
         }
       }
+    }
+  }
+}
+
+.fix-height-pagination-grid {
+  .head-container {
+    background-color: $table-head-bg;
+    padding-right: 19px;
+    border: #e8e8e8 solid 1px;
+
+    > .table {
+      border: none;
+    }
+  }
+  .content-container {
+    border-left: $table-border-color solid 1px;
+    border-right: $table-border-color solid 1px;
+    border-bottom: $table-border-color solid 1px;
+    overflow-y: scroll;
+
+    > .table {
+      margin-top: -36px;
+    }
+  }
+}
+
+.scroll-pagination-grid {
+  .head-container {
+
+    > .table {
+      width: auto;
+      max-width: none;
+    }
+  }
+  .content-container {
+    overflow-y: scroll;
+    overflow-x: scroll;
+
+    > .table {
+      width: auto;
+      max-width: none;
     }
   }
 }

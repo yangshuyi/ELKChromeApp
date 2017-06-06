@@ -25,7 +25,7 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
     function query(queryText) {
         var deferred = $q.defer();
         var url = "/_search";
-        return urlUtils.postJsonData(url, JSON.parse(queryText)).then(function (result) {
+        urlUtils.postJsonData(url, JSON.parse(queryText)).then(function (result) {
             if (result.hits.total == 0) {
                 return $q.when([]);
             } else {
@@ -36,7 +36,6 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
                 });
                 return $q.when(rows);
             }
-
         });
 
         return deferred.promise;

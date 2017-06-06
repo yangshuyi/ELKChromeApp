@@ -27,10 +27,12 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
         template: '' +
         '<nav class="navbar navbar-default {{headBarClass}}" style="">' +
         '   <div class="container-fluid">' +
+        '       <div class="navbar-header">'+
+        '           <a class="navbar-brand">LOG QUERY ANALYZER</a>'    +
+        '       </div>'    +
         '       <div class="collapse navbar-collapse">' +
         '           <ul class="nav navbar-nav navbar-left">' +
-        '               <li ><img src="images/parts-logo.jpg"></li>' +
-        '               <li ng-click="queryLog()" ng-class="{\'active\': currentState.is(\'main.logQueryAnalyzer\')}"><a>log query analyzer</a></li>' +
+        '               <li></li>' +
         '           </ul>' +
         '           <ul class="nav navbar-nav navbar-right">' +
         '               <li role="separator" class="divider"></li>' +

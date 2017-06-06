@@ -13,6 +13,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
             $scope.columnGridApi = {};
             $scope.columnGridOptions = {
+                gridHighlightCellStyleFlag: false,
                 rowCheckable: true,
                 multiRowCheckable: true,
                 rowSelectable: true,
@@ -31,14 +32,15 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
             $scope.resultColumnDefs = [];
 
-            $scope.gridApi = {};
-            $scope.gridOptions = {
+            $scope.queryResultGridApi = {};
+            $scope.queryResultGridOptions = {
+                showHorizontalScrollBarFlag: true,
                 rowCheckable: true,
                 multiRowCheckable: true,
                 rowSelectable: true,
                 paginationSupport: true,
                 useExternalPagination: true,
-                fixedHeightFlag: false,
+                fixedHeightFlag: true,
                 noDataMessage: '没有找到匹配的结果。',
                 columnDefs: []
             };
@@ -63,6 +65,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 $scope.columnGridApi.setGridData(columns, columns.length);
 
                 $scope.columnGridApi.resizeGridLayout($(window).width(), $(window).height() - 45);
+                $scope.queryResultGridApi.resizeGridLayout($(window).width(), $(window).height() - 85);
             });
 
             $scope.userProfiles = [];
@@ -87,7 +90,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 };
                 columnDefs.push(columnDef);
             });
-            $scope.gridOptions.columnDefs = columnDefs;
+            $scope.queryResultGridOptions.columnDefs = columnDefs;
         };
 
         $scope.openQueryConditionDialog = function () {
@@ -98,7 +101,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                         data: {queryText: $scope.model.selectUserProfile.content}
                     },
                     options: {
-                        title: '查询条件',
+                        title: '编辑查询条件',
                         width: "800px",
                         height: "600px",
                         modal: true,
@@ -111,14 +114,15 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 $dialogScope.onDialogClose = function () {
                     if ($dialogScope.result != null) {
                         $scope.model.selectUserProfile.content = $dialogScope.result;
-                        $scope.query($scope.model.selectUserProfile.content);
+                        $scope.query();
                     }
                 };
             });
         };
 
-        $scope.query = function (queryText) {
-            logQueryAnalyzerService.query(queryText).then(function (rows) {
+        $scope.query = function () {
+            logQueryAnalyzerService.query($scope.model.selectUserProfile.content).then(function (rows) {
+                $scope.queryResultGridOptions.setGridData(rows, rows.length);
 
                 commonDialogProvider.alert("find " + rows.length + " record(s)");
             });

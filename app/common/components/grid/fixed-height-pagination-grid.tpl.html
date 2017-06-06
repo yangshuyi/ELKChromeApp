@@ -1,9 +1,9 @@
-<div class="pagination-grid auto-height-pagination-grid">
-    <div class="fixed-height-head-container">
+<div class="pagination-grid fix-height-pagination-grid" ng-class="{'scroll-pagination-grid':options.showHorizontalScrollBarFlag==true}" >
+    <div class="head-container">
         <table class="table table-bordered ccc-table">
             <thead>
             <tr>
-                <th class="grid-highlight-cell">
+                <th ng-if="options.gridHighlightCellStyleFlag" class="grid-highlight-cell">
                 </th>
                 <th ng-if="options.rowCheckable" class="grid-checkbox-cell">
                     <checkbox-field ng-if="options.multiRowCheckable==true" ng-model="allRowCheckedFlag" on-checked="checkAllRows()" checkbox-field-class="checkbox-field-cell"/>
@@ -18,11 +18,14 @@
             </thead>
         </table>
     </div>
-    <div class="fixed-height-content-container">
-        <table class="table table-bordered ccc-table">
+    <div class="content-container">
+        <div ng-if="options.totalRecordCount == 0" class="no-data-found">
+            <div style="height:50px;padding: 10px;">{{options.noDataMessage}}</div>
+        </div>
+        <table ng-if="options.totalRecordCount > 0" class="table table-bordered ccc-table">
             <thead>
             <tr>
-                <th class="grid-highlight-cell">
+                <th ng-if="options.gridHighlightCellStyleFlag" class="grid-highlight-cell">
                 </th>
                 <th ng-if="options.rowCheckable" class="grid-checkbox-cell">
                     <checkbox-field ng-if="options.multiRowCheckable==true" ng-model="allRowCheckedFlag" on-checked="checkAllRows()" checkbox-field-class="checkbox-field-cell"/>
@@ -35,14 +38,7 @@
                 </th>
             </tr>
             </thead>
-            <tbody class="no-data-found" ng-if="options.totalRecordCount == 0">
-            <tr>
-                <td colspan="{{columnCount}}">
-                    <div style="height:50px;">{{options.noDataMessage}}</div>
-                </td>
-            </tr>
-            </tbody>
-            <tbody class="data-found" ng-if="options.totalRecordCount > 0">
+            <tbody>
             <tr ng-repeat="row in gridData" ng-click="selectRow(row)" ng-class="{'active':row.$selected}">
                 <td class="grid-highlight-cell"></td>
                 <td ng-if="options.rowCheckable" class="grid-checkbox-cell">

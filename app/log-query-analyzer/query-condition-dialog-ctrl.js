@@ -5,10 +5,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryCondition
             $scope.queryText = data.queryText;
         };
 
-        /**
-         *
-         */
-        $scope.confirm = function () {
+        $scope.verify = function(){
             var parseErrorMsg = null;
             try{
                 JSON.parse($scope.queryText)
@@ -18,7 +15,16 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryCondition
             }
             if(parseErrorMsg){
                 commonDialogProvider.alert("Parse JSON error");
-            }else{
+                return false;
+            }
+            return true;
+        };
+
+        /**
+         *
+         */
+        $scope.confirm = function () {
+            if($scope.verify()){
                 $scope.result = $scope.queryText;
                 $scope.dialogApi.close();
             }

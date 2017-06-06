@@ -29,7 +29,7 @@ $link-hover-color: $table-head-bg;
 
 //Typography
 $font-family-base: $font-family-parts;
-$font-size-base: 10px;
+$font-size-base: 12px;
 $font-size-large: 14px;
 $font-size-16: 12px;
 
@@ -46,20 +46,20 @@ $table-bg-active: #dcf8ff;
 $table-border-color: #e8e8e8;
 
 //Navbar
-$navbar-height: 43px;
-$navbar-margin-bottom: 0px;
+//$navbar-height: 43px;
+//$navbar-margin-bottom: 0px;
 $navbar-border-radius: 0px;
-
-$navbar-default-color: #ffffff; //导航栏文字颜色
-$navbar-default-bg: #2F2F2F; //导航栏背景颜色
-
-$navbar-default-brand-hover-color: $navbar-default-color; //导航栏LOGO的文字颜色，同文字颜色
-
-$navbar-default-link-color: $navbar-default-color; //导航栏链接颜色，同文字颜色
-$navbar-default-link-active-color: $navbar-default-color; //导航栏Active的链接颜色，同文字颜色
-$navbar-default-link-active-bg: #464646; //导航栏Active的背景颜色
-$navbar-default-link-hover-color: $navbar-default-color; //导航栏Hover的链接颜色，同文字颜色
-$navbar-default-link-hover-bg: #464646; //导航栏Hover的背景颜色
+//
+//$navbar-default-color: #ffffff; //导航栏文字颜色
+//$navbar-default-bg: #2F2F2F; //导航栏背景颜色
+//
+//$navbar-default-brand-hover-color: $navbar-default-color; //导航栏LOGO的文字颜色，同文字颜色
+//
+//$navbar-default-link-color: $navbar-default-color; //导航栏链接颜色，同文字颜色
+//$navbar-default-link-active-color: $navbar-default-color; //导航栏Active的链接颜色，同文字颜色
+//$navbar-default-link-active-bg: #464646; //导航栏Active的背景颜色
+//$navbar-default-link-hover-color: $navbar-default-color; //导航栏Hover的链接颜色，同文字颜色
+//$navbar-default-link-hover-bg: #464646; //导航栏Hover的背景颜色
 
 //Button
 $btn-border-radius-base: 4px;
