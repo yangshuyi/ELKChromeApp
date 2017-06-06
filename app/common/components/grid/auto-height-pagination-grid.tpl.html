@@ -26,7 +26,7 @@
         <tr ng-repeat="row in gridData" ng-click="selectRow(row)" ng-class="{'active':row.$selected}">
             <td class="grid-highlight-cell"></td>
             <td ng-if="options.rowCheckable" class="grid-checkbox-cell">
-                <div>
+                <div class="align-center">
                     <checkbox-field ng-model="row.$checked" on-checked="checkRow(row)" checkbox-field-class="checkbox-field-cell" ng-disabled="row.$checkable == false"/>
                 </div>
             </td>

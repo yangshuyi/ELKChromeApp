@@ -168,7 +168,7 @@
     flex: 1;
     resize: none;
 
-    border-color:$table-border-color;
+    border-color: $table-border-color;
     border-radius: $border-radius-base;
   }
 
@@ -177,7 +177,7 @@
   }
 }
 
-.horizontal-remark-field{
+.horizontal-remark-field {
   flex-flow: row;
 
   .header {
@@ -384,7 +384,6 @@
   }
 }
 
-
 /*** Panel ***/
 .panel-primary {
   display: block;
@@ -415,6 +414,19 @@
 
 /*** pagination grid ***/
 .pagination-grid {
+  .fixed-height-head-container{
+    background-color: $table-head-bg;
+  }
+  .fixed-height-content-container {
+    border-left: $table-border-color solid 1px;
+    border-right: $table-border-color solid 1px;
+    border-bottom: $table-border-color solid 1px;
+    overflow-y: scroll;
+
+    > .table {
+      margin-top: -42px;
+    }
+  }
 
   .pagination-bar {
     display: flex;
@@ -436,7 +448,7 @@
     }
 
     > .page-bar {
-      margin-left:20px;
+      margin-left: 20px;
       > .page {
         border-top: 1px solid $table-border-color;
         border-left: 1px solid $table-border-color;

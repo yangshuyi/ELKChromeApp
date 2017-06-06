@@ -12,7 +12,7 @@ angular.module('elkChromeApp').config(['$stateProvider', '$urlRouterProvider', '
         .state('main', {
             url: '/main',
             templateUrl: 'app/main.html',
-            controller: ['$scope', '$rootScope', 'constants', 'urlUtils', '$state', 'commonDialogProvider', 'notifyProvider', function ($scope, $rootScope, constants, urlUtils, $state, commonDialogProvider, notifyProvider) {
+            controller: ['$scope', '$rootScope', 'constants', 'urlUtils', 'esDaoUtils', '$state', 'commonDialogProvider', 'notifyProvider', function ($scope, $rootScope, constants, urlUtils, esDaoUtils, $state, commonDialogProvider, notifyProvider) {
                 $scope.onLoad = function () {
                     console.log('main.onload')
                     $rootScope.currentState = $state;
@@ -30,9 +30,9 @@ angular.module('elkChromeApp').config(['$stateProvider', '$urlRouterProvider', '
                 $scope.onESServerConnection = function(esServerUrl){
                     $rootScope.esServerUrl = esServerUrl;
                     urlUtils.setRootPath($rootScope.esServerUrl);
-                    urlUtils.getFormData('/', null).then(function(data){
-                        if(data.cluster_name){
-                            notifyProvider.notify("连接["+data.cluster_name+"]成功");
+                    esDaoUtils.connectToEs().then(function(clusterName){
+                        if(clusterName){
+                            notifyProvider.notify("连接["+clusterName+"]成功");
                             $rootScope.isEsConnected = true;
                             $state.go('main.logQueryAnalyzer', {});
                         }else{

@@ -50,12 +50,13 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
             options: '=',
             onRowSelected: '=',
             onRowChecked: '=',
+            onAllRowChecked: '=',
             onRowDbClicked: '=',
             onPaginationChange: '=',
             onSortChanged: '=',
             api: '='
         },
-        link: function ($scope, element, attrs) {
+        link: function ($scope, $element, $attrs) {
             $scope.onLoad = function () {
 
                 $scope.options.rowSelectable = $scope.options.rowSelectable || false;
@@ -70,22 +71,40 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                 $scope.options.currentGroup = 0;
                 $scope.options.pageItemSize = 10;
                 $scope.options.groupItemSize = 5;
-                
-                $scope.initColumns();
+
+
 
                 // init explore api
                 $scope.$watch('api', function (newVal, oldVal) {
                     if ($scope.api) {
+                        $scope.api.reload = $scope.reload;
                         $scope.api.getCheckedRows = $scope.getCheckedRows;
                         $scope.api.checkAllRows = $scope.checkAllRows;
                         $scope.api.setGridData = $scope.setGridData;
                         $scope.api.resetPage = $scope.resetPage;
+                        $scope.api.resizeGridLayout = $scope.resizeGridLayout;
                     }
                 });
+
+                $scope.$watch('options.columnDefs', function (newVal, oldVal) {
+                    $scope.initColumns();
+                });
             };
+
+            /**
+             * 重新加载组件
+             */
+            $scope.reload = function(){
+                $scope.onLoad();
+            };
+
+            /**
+             * 重新初始化分页
+             */
             $scope.resetPage = function () {
                 $scope.options.resetPage();
             };
+
             /**
              * 初始化列
              **/
@@ -111,8 +130,23 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                 }
                 $scope.options.totalRecordCount = totalRecordCount;
 
-                $scope.checkAllRows(false);
+                $scope.checkAllRows(false, true);
                 $scope.unSelectedAllRows();
+
+
+            };
+
+            $scope.resizeGridLayout = function(gridWidth, gridHeight){
+                if(!$scope.options.fixedHeightFlag){
+                    return;
+                }
+
+                var headDiv = $('.fixed-height-head-container', $element.parent());
+                var contentDiv = $('.fixed-height-content-container', $element.parent());
+                var paginationBarDiv = $('.fixed-height-pagination-bar', $element.parent());
+
+                var boundHeight = headDiv.outerHeight(true)+paginationBarDiv.outerHeight(true);
+                contentDiv.height(gridHeight - boundHeight);
             };
 
             $scope.sortData = function (col, columns) {
@@ -154,7 +188,7 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
             };
 
             /*** checkbox 相关逻辑 ***/
-            $scope.checkAllRows = function (manualFlag) {
+            $scope.checkAllRows = function (manualFlag, silentFlag) {
                 if ($scope.options.rowCheckable && $scope.options.multiRowCheckable) {
                     if (manualFlag != null) {
                         $scope.allRowCheckedFlag = manualFlag;
@@ -162,12 +196,16 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                         $scope.allRowCheckedFlag = !!!$scope.allRowCheckedFlag;
                     }
 
+                    if($scope.onAllRowChecked && silentFlag==true){
+                        $scope.onAllRowChecked($scope.allRowCheckedFlag);
+                    }
+
                     _.forEach($scope.gridData, function (row) {
                         if (row.$checkable == false) {
                             return;
                         }
                         row.$checked = $scope.allRowCheckedFlag;
-                        if ($scope.onRowChecked) {
+                        if ($scope.onRowChecked && silentFlag==true) {
                             $scope.onRowChecked(row, row.$checked);
                         }
                     });
@@ -186,7 +224,7 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                             }
                         });
                     }
-                    row.$checked = !!!row.$checked;
+                    row.$checked = !!row.$checked;
                     if ($scope.onRowChecked) {
                         $scope.onRowChecked(row, row.$checked);
                     }

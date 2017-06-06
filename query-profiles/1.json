@@ -1,0 +1,42 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "APP.raw": "PARTS"
+          }
+        },
+        {
+          "term": {
+            "COMMON_REQ_URL.raw": "/parts/pit/import"
+          }
+        },
+        {
+          "prefix": {
+            "host.raw": "192.168.200.75:"
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gt": "2017-06-03T06:40:16.515Z"
+            }
+          }
+        }
+      ],
+      "must_not": [],
+      "should": []
+    }
+  },
+  "from": 0,
+  "size": 100,
+  "sort": [
+    {
+      "@timestamp": {
+        "order": "asc"
+      }
+    }
+  ],
+  "aggs": {}
+}

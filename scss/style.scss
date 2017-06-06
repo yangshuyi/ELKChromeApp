@@ -41,17 +41,26 @@
 }
 
 .log-query-analyzer-content {
-  .query-condition-panel {
-    display: flex;
+  display: flex;
+
+  >.field-panel{
+    width: 300px;
   }
 
-  .query-result-panel {
+  >.query-panel{
+    flex: 1;
+    .query-condition-panel {
+      display: flex;
+    }
+
+    .query-result-panel {
+    }
   }
 }
 
 .query-condition-dialog-content {
   textarea {
-    height:600px;
+    height:500px;
     resize: none;
   }
 }
