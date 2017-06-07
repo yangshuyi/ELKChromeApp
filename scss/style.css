@@ -3684,7 +3684,7 @@ tbody.collapse.in {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 17px;
+  margin-bottom: 10px;
   border: 1px solid transparent; }
   .navbar:before, .navbar:after {
     content: " ";
@@ -5913,8 +5913,10 @@ label {
       font-weight: normal;
       font-size: 12px;
       text-align: center;
-      border: none;
-      padding: 6px 4px; }
+      vertical-align: middle;
+      border-top: none;
+      border-bottom: none;
+      padding: 0px 4px; }
       .ccc-table > thead > tr > th > div {
         display: inline-block; }
     .ccc-table > thead > tr > .grid-highlight-cell {
@@ -5972,6 +5974,11 @@ label {
 
 .cursor-not-allowed {
   cursor: not-allowed; }
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
 
 body {
   margin: 0px auto; }
@@ -6299,19 +6306,6 @@ body {
     margin-top: 0px; }
 
 /*** pagination grid ***/
-.pagination-grid .fixed-height-head-container {
-  background-color: #2a89d8;
-  padding-right: 19px;
-  border: #e8e8e8 solid 1px; }
-  .pagination-grid .fixed-height-head-container > .table {
-    border: none; }
-.pagination-grid .fixed-height-content-container {
-  border-left: #e8e8e8 solid 1px;
-  border-right: #e8e8e8 solid 1px;
-  border-bottom: #e8e8e8 solid 1px;
-  overflow-y: scroll; }
-  .pagination-grid .fixed-height-content-container > .table {
-    margin-top: -36px; }
 .pagination-grid .pagination-bar {
   display: flex;
   align-items: stretch;
@@ -6353,8 +6347,7 @@ body {
 
 .fix-height-pagination-grid .head-container {
   background-color: #2a89d8;
-  padding-right: 19px;
-  border: #e8e8e8 solid 1px; }
+  padding-right: 19px; }
   .fix-height-pagination-grid .head-container > .table {
     border: none; }
 .fix-height-pagination-grid .content-container {
@@ -6365,16 +6358,37 @@ body {
   .fix-height-pagination-grid .content-container > .table {
     margin-top: -36px; }
 
-.scroll-pagination-grid .head-container > .table {
-  width: auto;
-  max-width: none; }
-.scroll-pagination-grid .content-container {
-  overflow-y: scroll;
-  overflow-x: scroll; }
-  .scroll-pagination-grid .content-container > .table {
+.scroll-grid .head-container {
+  overflow: hidden;
+  background-color: #2a89d8;
+  border-left: #e8e8e8 solid 1px;
+  border-right: #e8e8e8 solid 1px; }
+  .scroll-grid .head-container > .table {
     width: auto;
     max-width: none;
-    margin-top: -36px; }
+    border: none; }
+.scroll-grid .content-container {
+  overflow: scroll;
+  border-left: #e8e8e8 solid 1px;
+  border-right: #e8e8e8 solid 1px;
+  border-bottom: #e8e8e8 solid 1px; }
+  .scroll-grid .content-container > .table {
+    margin-top: -36px;
+    width: auto;
+    max-width: none;
+    border: none;
+    border-bottom: #e8e8e8 solid 1px; }
+.scroll-grid .helper-layer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .scroll-grid .helper-layer > div {
+    border: 1px solid #e8e8e8;
+    padding: 2px;
+    cursor: pointer; }
+    .scroll-grid .helper-layer > div:hover {
+      background-color: #dcf8ff; }
 
 .navbar-default {
   color: #777; }
@@ -6383,8 +6397,7 @@ body {
   .navbar-default .es-server-field .field {
     background-color: transparent; }
     .navbar-default .es-server-field .field .form-control {
-      background-color: transparent;
-      color: white; }
+      background-color: transparent; }
   .navbar-default .es-server-field .input-group-inner-addon {
     color: white; }
   .navbar-default .connection-status-img {
@@ -6398,14 +6411,13 @@ body {
     .navbar-default .connection-status-img.unconnected {
       background-color: red; }
 
-.log-query-analyzer-content {
-  display: flex; }
-  .log-query-analyzer-content > .field-panel {
-    width: 300px; }
-  .log-query-analyzer-content > .query-panel {
-    flex: 1; }
-    .log-query-analyzer-content > .query-panel .query-condition-panel {
-      display: flex; }
+.log-query-analyzer-content > .field-panel {
+  display: inline-block;
+  width: 300px; }
+.log-query-analyzer-content > .query-panel {
+  display: inline-block; }
+  .log-query-analyzer-content > .query-panel .query-condition-panel {
+    display: flex; }
 
 .query-condition-dialog-content textarea {
   height: 500px;

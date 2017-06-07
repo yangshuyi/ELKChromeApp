@@ -414,28 +414,6 @@
 
 /*** pagination grid ***/
 .pagination-grid {
-  .fixed-height-head-container {
-    background-color: $table-head-bg;
-    padding-right: 19px;
-    border: #e8e8e8 solid 1px;
-
-    > .table {
-      border: none;
-    }
-  }
-  .fixed-height-content-container {
-    border-left: $table-border-color solid 1px;
-    border-right: $table-border-color solid 1px;
-    border-bottom: $table-border-color solid 1px;
-    overflow-y: scroll;
-
-    > .table {
-      margin-top: -36px;
-    }
-
-
-  }
-
   .pagination-bar {
     display: flex;
     align-items: stretch;
@@ -496,7 +474,6 @@
   .head-container {
     background-color: $table-head-bg;
     padding-right: 19px;
-    border: #e8e8e8 solid 1px;
 
     > .table {
       border: none;
@@ -514,21 +491,51 @@
   }
 }
 
-.scroll-pagination-grid {
+.scroll-grid {
   .head-container {
+    overflow: hidden;
+
+    background-color: $table-head-bg;
+
+    border-left: $table-border-color solid 1px;
+    border-right: $table-border-color solid 1px;
 
     > .table {
       width: auto;
       max-width: none;
+      border: none;
     }
   }
   .content-container {
-    overflow-y: scroll;
-    overflow-x: scroll;
+    overflow: scroll;
+
+    border-left: $table-border-color solid 1px;
+    border-right: $table-border-color solid 1px;
+    border-bottom: $table-border-color solid 1px;
 
     > .table {
+      margin-top: -36px;
       width: auto;
       max-width: none;
+      border: none;
+      border-bottom: $table-border-color solid 1px;
+    }
+  }
+
+  .helper-layer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      border: 1px solid $table-border-color;
+      padding: 2px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $table-bg-active;
+      }
     }
   }
 }

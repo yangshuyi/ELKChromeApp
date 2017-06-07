@@ -13,7 +13,6 @@
 
       .form-control {
         background-color: transparent;
-        color: white;
       }
     }
     .input-group-inner-addon {
@@ -41,14 +40,15 @@
 }
 
 .log-query-analyzer-content {
-  display: flex;
 
   >.field-panel{
+    display: inline-block;
     width: 300px;
   }
 
   >.query-panel{
-    flex: 1;
+    display: inline-block;
+
     .query-condition-panel {
       display: flex;
     }

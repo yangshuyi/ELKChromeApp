@@ -1,7 +1,7 @@
 'use strict';
-angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyzerCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$window', 'constants', 'commonDialogProvider', 'dialogProvider'
+angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyzerCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$window', 'constants', 'commonDialogProvider', 'dialogProvider', 'notifyProvider'
     , 'esDaoUtils', 'logQueryAnalyzerService'
-    , function ($scope, $rootScope, $state, $timeout, $window, constants, commonDialogProvider, dialogProvider
+    , function ($scope, $rootScope, $state, $timeout, $window, constants, commonDialogProvider, dialogProvider, notifyProvider
         , esDaoUtils, logQueryAnalyzerService) {
         /**
          * 页面加载逻辑
@@ -25,7 +25,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                         field: 'displayName',
                         displayName: '显示字段列表',
                         enableSorting: false,
-                        cellTemplate: "<div style='width: 230px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;' title='{{row.displayName}}'>{{row.displayName}}</div>",
+                        cellTemplate: "<div style='width: 230px;' class='text-ellipsis' title='{{row.displayName}}'>{{row.displayName}}</div>",
                     }
                 ]
             };
@@ -34,21 +34,13 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
             $scope.queryResultGridApi = {};
             $scope.queryResultGridOptions = {
-                showHorizontalScrollBarFlag: true,
-                rowCheckable: true,
-                multiRowCheckable: true,
                 rowSelectable: true,
-                paginationSupport: true,
-                useExternalPagination: true,
-                fixedHeightFlag: true,
-                noDataMessage: '没有找到匹配的结果。',
                 columnDefs: []
             };
 
             $(window).resize(function () {
                 $scope.resizeLayout();
             });
-
 
             $scope.init();
         };
@@ -63,9 +55,8 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 columns = _.sortBy(columns, 'displayName');
 
                 $scope.columnGridApi.setGridData(columns, columns.length);
+                $scope.onColumnChanged();
 
-                $scope.columnGridApi.resizeGridLayout($(window).width(), $(window).height() - 45);
-                $scope.queryResultGridApi.resizeGridLayout($(window).width(), $(window).height() - 85);
             });
 
             $scope.userProfiles = [];
@@ -83,10 +74,11 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
             var columnDefs = [];
             _.each(selectedColumns, function(column){
                 var columnDef = {
-                    field: column.name,
+                    field: column.columnName,
                     displayName: column.caption,
                     enableSorting: false,
-                    cellTemplate: "<div title='{{row[col.field]}}'>{{row[col.field]}}</div>",
+                    headStyle: {width:'100px'},
+                    cellStyle: {width:'100px'},
                 };
                 columnDefs.push(columnDef);
             });
@@ -122,17 +114,20 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
         $scope.query = function () {
             logQueryAnalyzerService.query($scope.model.selectUserProfile.content).then(function (rows) {
-                $scope.queryResultGridOptions.setGridData(rows, rows.length);
-
-                commonDialogProvider.alert("find " + rows.length + " record(s)");
+                $scope.queryResultGridApi.setGridData(rows, rows.length);
+                notifyProvider.notify("查询到["+rows.length+"]条结果。");
             });
         };
 
 
         $scope.resizeLayout = function () {
             $timeout(function () {
+                var queryPanelWidth = ($(window).width() - $('.field-panel').width() - 5)
+                $('.query-panel').width(queryPanelWidth);
 
-            });
+                $scope.columnGridApi.resizeGridLayout(null, $(window).height() - 75);
+                $scope.queryResultGridApi.resizeGridLayout($('.query-result-panel').width(), $(window).height() - 115);
+            }, 500);
         };
 
         $scope.onLoad();

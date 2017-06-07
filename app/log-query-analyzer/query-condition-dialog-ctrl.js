@@ -2,13 +2,13 @@
 angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryConditionDialogCtrl', ['$scope', '$q', 'constants', 'commonDialogProvider', 'data',
     function ($scope, $q, constants, commonDialogProvider, data) {
         $scope.onLoad = function () {
-            $scope.queryText = data.queryText;
+            $scope.model = {queryText: data.queryText}
         };
 
         $scope.verify = function(){
             var parseErrorMsg = null;
             try{
-                JSON.parse($scope.queryText)
+                JSON.parse($scope.model.queryText);
             }
             catch(e){
                 parseErrorMsg=e;
@@ -25,7 +25,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryCondition
          */
         $scope.confirm = function () {
             if($scope.verify()){
-                $scope.result = $scope.queryText;
+                $scope.result = $scope.model.queryText;
                 $scope.dialogApi.close();
             }
         };

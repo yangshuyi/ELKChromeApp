@@ -1,0 +1,50 @@
+<div class="scroll-grid">
+    <div class="head-container">
+        <table class="table table-bordered ccc-table">
+            <thead>
+            <tr>
+                <th ng-repeat="col in columns" field="{{col.field}}" >
+                    <div ng-style="col.headStyle" class='text-ellipsis' ng-if="col.headTemplate" cell-compiler="col.headTemplate" cell-template-scope="col.headTemplateScope"></div>
+                    <div ng-style="col.headStyle" class='text-ellipsis' ng-if="!col.headTemplate" title="{{col.displayName || col.field}}">{{col.displayName || col.field}}</div>
+                </th>
+                <th style="border:none;">
+                    <div style="width:19px;"></div>
+                </th>
+            </tr>
+            </thead>
+        </table>
+        <div class="helper-layer" style="display:none;">
+            <div ng-click="addTdWidth()">+</div>
+            <div ng-click="minusTdWidth()">-</div>
+            <div ng-click="moveTdFwd()"><</div>
+            <div ng-click="moveTdBwd()">></div>
+        </div>
+    </div>
+    <div class="content-container">
+        <table class="table table-bordered ccc-table">
+            <thead>
+            <tr>
+                <th ng-repeat="col in columns" ng-class="{'cursor-pointer':col.enableSorting==true}" ng-click="sortData(col, columns)">
+                    <div ng-style="col.headStyle" class='text-ellipsis' ng-if="col.headTemplate" cell-compiler="col.headTemplate" cell-template-scope="col.headTemplateScope"></div>
+                    <div ng-style="col.headStyle" class='text-ellipsis' ng-if="!col.headTemplate">{{col.displayName || col.field}}</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody ng-if="gridData.length>0">
+            <tr ng-repeat="row in gridData" ng-click="selectRow(row)" ng-class="{'active':row.$selected}">
+                <td ng-repeat="col in columns">
+                    <div ng-style="col.cellStyle" class='text-ellipsis' ng-if="col.cellTemplate" cell-compiler="col.cellTemplate"></div>
+                    <div ng-style="col.cellStyle" class='text-ellipsis' ng-if="!col.cellTemplate" title="{{row[col.field]}}">{{row[col.field]}}</div>
+                </td>
+            </tr>
+            </tbody>
+            <tbody ng-if="gridData==null || gridData.length==0">
+            <tr>
+                <td ng-repeat="col in columns">
+                    <div ng-style="col.cellStyle"></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -27,14 +27,14 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
         var url = "/_search";
         urlUtils.postJsonData(url, JSON.parse(queryText)).then(function (result) {
             if (result.hits.total == 0) {
-                return $q.when([]);
+                return deferred.resolve([]);
             } else {
                 var datas = result.hits.hits;
                 var rows = [];
                 _.each(datas, function (data) {
-                    rows.push(data);
+                    rows.push(_.get(data, '_source', null));
                 });
-                return $q.when(rows);
+                return deferred.resolve(rows);
             }
         });
 
@@ -45,6 +45,7 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
      * 获取logstash的索引列
      */
     function fetchIndices() {
+        var defaultColumns = ['@timestamp', 'APP', 'priority', 'MSG'];
         var indexNamePrefix = 'logstash-log4j-json-';
 
         var url = "/_cluster/state";
@@ -64,6 +65,9 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
                         columnMap[key].columnType = propertyObj.type;
                         columnMap[key].fieldIndex = _.get(propertyObj, 'fields.raw.index', null);
 
+                        if(_.includes(defaultColumns, columnMap[key].columnName)){
+                            columnMap[key].$checked = true;
+                        }
                         columnMap[key].displayName = columnMap[key].columnName + '[' + columnMap[key].columnType + ']';
                         columnMap[key].caption = columnMap[key].columnName;
                     });

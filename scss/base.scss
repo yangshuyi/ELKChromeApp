@@ -143,8 +143,11 @@ label{
         font-size: $font-size-16;
 
         text-align: center;
-        border: none;
-        padding: 6px 4px;
+        vertical-align: middle;
+
+        border-top: none;
+        border-bottom: none;
+        padding: 0px 4px;
 
         > div {
           display: inline-block;
@@ -246,6 +249,13 @@ label{
 .cursor-not-allowed {
   cursor: not-allowed;
 }
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 
 body {
   margin: 0px auto;

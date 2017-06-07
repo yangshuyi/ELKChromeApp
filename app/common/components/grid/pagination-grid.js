@@ -59,7 +59,6 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
         },
         link: function ($scope, $element, $attrs) {
             $scope.onLoad = function () {
-                $scope.options.showHorizontalScrollBarFlag =  $scope.options.showHorizontalScrollBarFlag || false;
                 $scope.options.gridHighlightCellStyleFlag = $scope.options.gridHighlightCellStyleFlag || true;
                 $scope.options.rowSelectable = $scope.options.rowSelectable || false;
                 $scope.options.rowCheckable = $scope.options.rowCheckable || false;
@@ -135,11 +134,6 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                     $scope.gridDataBak = angular.copy($scope.gridData); //内建排序时使用
                 }
                 $scope.options.totalRecordCount = totalRecordCount;
-
-                $scope.checkAllRows(false, true);
-                $scope.unSelectedAllRows();
-
-
             };
 
             $scope.resizeGridLayout = function(gridWidth, gridHeight){
@@ -147,9 +141,9 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                     return;
                 }
 
-                var headDiv = $('.fixed-height-head-container', $element.parent());
-                var contentDiv = $('.fixed-height-content-container', $element.parent());
-                var paginationBarDiv = $('.fixed-height-pagination-bar', $element.parent());
+                var headDiv = $('.head-container', $element.parent());
+                var contentDiv = $('.content-container', $element.parent());
+                var paginationBarDiv = $('.pagination-bar', $element.parent());
 
                 var boundHeight = headDiv.outerHeight(true)+paginationBarDiv.outerHeight(true);
                 contentDiv.height(gridHeight - boundHeight);
