@@ -25,7 +25,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                         field: 'displayName',
                         displayName: '显示字段列表',
                         enableSorting: false,
-                        cellTemplate: "<div style='width: 230px;' class='text-ellipsis' title='{{row.displayName}}'>{{row.displayName}}</div>",
+                        cellTemplate: "<div style='width: 230px;' class='text-ellipsis' title='{{row.columnName}}'>{{row.columnName}}[{{row.type}}]</div>",
                     }
                 ]
             };
@@ -46,42 +46,82 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
         };
 
         $scope.init = function () {
-            esDaoUtils.fetchIndices().then(function (columnMap) {
-                $scope.columnMap = columnMap;
-                var columns = [];
-                _.each(columnMap, function (value, key) {
-                    columns.push(value);
-                });
-                columns = _.sortBy(columns, 'displayName');
+            logQueryAnalyzerService.fetchIndices().then(function (columns) {
+                $scope.columns = _.sortBy(columns, 'columnName');
 
-                $scope.columnGridApi.setGridData(columns, columns.length);
+                $scope.columnGridApi.setGridData($scope.columns, columns.length);
                 $scope.onColumnChanged();
 
             });
 
-            $scope.userProfiles = [];
-
-            logQueryAnalyzerService.loadQueryProfiles().then(function(profiles){
-                $scope.model.userProfiles = profiles;
+            logQueryAnalyzerService.loadQueryProfiles().then(function (profiles) {
+                $scope.model.queryProfiles = profiles;
             });
 
             $scope.resizeLayout();
         };
 
-        $scope.onColumnChanged = function(){
+        $scope.onColumnChanged = function () {
             var selectedColumns = $scope.columnGridApi.getCheckedRows();
 
             var columnDefs = [];
-            _.each(selectedColumns, function(column){
+            _.each(selectedColumns, function (column) {
                 var columnDef = {
                     field: column.columnName,
                     displayName: column.caption,
                     enableSorting: false,
-                    headStyle: {width:'100px'},
-                    cellStyle: {width:'100px'},
+                    headStyle: {width: '100px'},
+                    cellStyle: {width: '100px'},
                 };
                 columnDefs.push(columnDef);
             });
+            $scope.queryResultGridOptions.columnDefs = columnDefs;
+
+            if (profile['@source'] && _.isArray(profile['@source'])) {
+                _.each(profile['@source'], function (source) {
+                    var column = _.find($scope.columns, {columnName: source});
+                    if (column) {
+                        column.$checked = true;
+                    }
+                });
+            } else {
+                //尚未设置显示的列
+                _.each($scope.columns, function (column) {
+                    if (column.defaultChecked) {
+                        profile.contentObj['@source'] = _.map($scope.columns, 'columnName');
+                        column.$checked = true;
+                    }
+                });
+                profile.content = JSON.stringify(profile.contentObj);
+            }
+        };
+
+        $scope.onQueryProfileSelected = function () {
+            var profile = $scope.model.selectedQueryProfile;
+            if (profile == null) {
+                return;
+            }
+
+            $scope.columnGridApi.checkAllRows(false, true);
+
+            if (profile['@source'] && _.isArray(profile['@source'])) {
+                _.each(profile['@source'], function (source) {
+                    var column = _.find($scope.columns, {columnName: source});
+                    if (column) {
+                        column.$checked = true;
+                    }
+                });
+            } else {
+                //尚未设置显示的列
+                _.each($scope.columns, function (column) {
+                    if (column.defaultChecked) {
+                        profile.contentObj['@source'] = _.map($scope.columns, 'columnName');
+                        column.$checked = true;
+                    }
+                });
+                profile.content = JSON.stringify(profile.contentObj);
+            }
+
             $scope.queryResultGridOptions.columnDefs = columnDefs;
         };
 
@@ -90,7 +130,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                     templateUrl: 'app/log-query-analyzer/query-condition-dialog.html',
                     controllerName: 'queryConditionDialogCtrl',
                     resolves: {
-                        data: {queryText: $scope.model.selectUserProfile.content}
+                        data: {queryText: $scope.model.selectedQueryProfile.content}
                     },
                     options: {
                         title: '编辑查询条件',
@@ -105,7 +145,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
             ).then(function ($dialogScope) {
                 $dialogScope.onDialogClose = function () {
                     if ($dialogScope.result != null) {
-                        $scope.model.selectUserProfile.content = $dialogScope.result;
+                        $scope.model.selectedQueryProfile.content = $dialogScope.result;
                         $scope.query();
                     }
                 };
@@ -113,9 +153,9 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
         };
 
         $scope.query = function () {
-            logQueryAnalyzerService.query($scope.model.selectUserProfile.content).then(function (rows) {
+            logQueryAnalyzerService.query($scope.model.selectedQueryProfile.contentObj).then(function (rows) {
                 $scope.queryResultGridApi.setGridData(rows, rows.length);
-                notifyProvider.notify("查询到["+rows.length+"]条结果。");
+                notifyProvider.notify("查询到[" + rows.length + "]条结果。");
             });
         };
 

@@ -1,5 +1,5 @@
 'use strict';
-angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerService", ['$q', 'urlUtils', 'esDaoUtils', 'fileUtils', 'constants', function ($q, urlUtils, esDaoUtils, fileUtils, constants) {
+angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerService", ['$q', 'urlUtils', 'esDaoUtils', 'queryProfileModel', 'queryModel', function ($q, urlUtils, esDaoUtils, queryProfileModel, queryModel) {
 
     return {
         loadQueryProfiles: loadQueryProfiles,
@@ -10,10 +10,10 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
     /**
      *
      */
-    function query(queryText) {
+    function query(queryObj) {
         var deferred = $q.defer();
 
-        esDaoUtils.query(queryText).then(function (result) {
+        esDaoUtils.query(queryObj).then(function (result) {
             deferred.resolve(result);
         });
         return deferred.promise;
@@ -22,30 +22,39 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
     function fetchIndices() {
         var deferred = $q.defer();
 
-        esDaoUtils.fetchIndices().then(function (columnMap) {
-            deferred.resolve(columnMap);
+        esDaoUtils.fetchIndices().then(function (columns) {
+            var result = queryModel.setIndexColumns(columns);
+            deferred.resolve(result);
         });
         return deferred.promise;
     };
 
-    function loadQueryProfiles() {
-        var list = [];
-        list.push({name: 'DRP-用户请求查询', filePath: 'query-profiles/2.json', content: null});
-        list.push({name: 'PARTS-PIT请求处理', filePath: 'query-profiles/1.json', content: null});
-
-        var promiseArray = [];
-        _.each(list, function (item) {
-            var promise = fileUtils.loadFileByPath(item.filePath);
-
-            promiseArray.push(promise);
-        });
-
+    function loadQueryProfiles(){
         var deferred = $q.defer();
-        $q.all(promiseArray).then(function (results) {
-            _.each(results, function (result, index) {
-                list[index].content = result;
+
+        var columns = queryModel.getIndexColumns();
+
+        queryProfileModel.loadProfileModels().then(function (profiles) {
+            _.each(profiles, function(profile){
+                if(profile['@source'] && _.isArray(profile['@source'])){
+                    _.each(profile['@source'] , function(source){
+                        var columnName = source.columnName;
+                        var column = _.find(columns, {columnName:columnName});
+                        if(column){
+                            _.assignIn(source, column.defaultSetting);
+                        }
+                    })
+                }else{
+                    profile['@source'] = [];
+                    _.each(columns, function(column){
+                        var source = column;
+                        _.assignIn(source, column.defaultSetting);
+
+                        profile['@source'].push(source);
+                    });
+                }
             });
-            deferred.resolve(list);
+            deferred.resolve(profiles);
         });
         return deferred.promise;
     }

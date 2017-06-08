@@ -1,7 +1,7 @@
 'use strict';
 angular.module('elkChromeApp', ['ui.router', 'restangular'
     ,'common.utils', 'common.components.dialog', 'common.components.notify'
-    ,'common.businessComponents.bar', 'common.businessComponents.interceptor'
+    ,'common.businessComponents.bar', 'common.businessComponents.interceptor','common.businessComponents.model'
     ,'elkChromeApp.defaultModule', 'elkChromeApp.logQueryAnalyzerModule']);
 
 angular.module('elkChromeApp').config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', 'commonDialogProviderProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, commonDialogProviderProvider) {

@@ -79,7 +79,7 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 $scope.columnCount = $scope.columns.length;
 
                 var deferred = $q.defer();
-                $timeout(function(){
+                $timeout(function () {
 
                     //注册事件
                     var headDiv = $('.head-container', $element);
@@ -141,6 +141,8 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 var columnWidth = $($scope.currentThElem).width();
                 column.headStyle.width = columnWidth + 50 + "px";
                 column.cellStyle.width = columnWidth + 50 + "px";
+                //hardCode
+                column.width = column.width + 50;
             };
 
             $scope.minusTdWidth = function () {
@@ -152,6 +154,8 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 if (columnWidth > 100) {
                     column.headStyle.width = columnWidth - 50 + "px";
                     column.cellStyle.width = columnWidth - 50 + "px";
+                    //hardCode
+                    column.width = column.width - 50;
                 }
             };
 
@@ -164,6 +168,10 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 if (idx > 0) {
                     $scope.columns[idx] = $scope.columns[idx - 1];
                     $scope.columns[idx - 1] = column;
+
+                    //hardCode
+                    $scope.columns[idx].displayOrder = idx;
+                    $scope.columns[idx - 1].displayOrder = idx - 1;
                 }
                 $('.helper-layer', $element).hide();
             };
@@ -177,6 +185,9 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 if (idx < $scope.columns.length - 1) {
                     $scope.columns[idx] = $scope.columns[idx + 1];
                     $scope.columns[idx + 1] = column;
+                    //hardCode
+                    $scope.columns[idx].displayOrder = idx;
+                    $scope.columns[idx + 1].displayOrder = idx + 1;
                 }
                 $('.helper-layer', $element).hide();
             };

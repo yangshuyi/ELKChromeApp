@@ -196,9 +196,6 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                         $scope.allRowCheckedFlag = !!!$scope.allRowCheckedFlag;
                     }
 
-                    if($scope.onAllRowChecked && silentFlag!=true){
-                        $scope.onAllRowChecked($scope.allRowCheckedFlag);
-                    }
 
                     _.forEach($scope.gridData, function (row) {
                         if (row.$checkable == false) {
@@ -209,6 +206,10 @@ angular.module('common.components.grid').directive('paginationGrid', ['$timeout'
                         //     $scope.onRowChecked(row, row.$checked);
                         // }
                     });
+
+                    if($scope.onAllRowChecked && silentFlag!=true){
+                        $scope.onAllRowChecked($scope.allRowCheckedFlag);
+                    }
                 }
             };
 

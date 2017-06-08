@@ -22,10 +22,13 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
     /**
      * query log
      */
-    function query(queryText) {
+    function query(queryObj) {
+        var param = JSON.parse(JSON.stringify(queryObj));
+        param = _.omit(param, ['@source']);
+
         var deferred = $q.defer();
         var url = "/_search";
-        urlUtils.postJsonData(url, JSON.parse(queryText)).then(function (result) {
+        urlUtils.postJsonData(url, param).then(function (result) {
             if (result.hits.total == 0) {
                 return deferred.resolve([]);
             } else {
@@ -50,7 +53,7 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
 
         var url = "/_cluster/state";
         return urlUtils.getFormData(url, null).then(function (result) {
-            var columnMap = {};
+            var columns = [];
 
             if (result.metadata.indices) {
                 var indices = result.metadata.indices;
@@ -60,21 +63,14 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
                     }
                     var properties = _.get(indexObj, 'mappings.log4j-json.properties', null); 
                     _.each(properties, function (propertyObj, key) {
-                        columnMap[key] = {};
-                        columnMap[key].columnName = key;
-                        columnMap[key].columnType = propertyObj.type;
-                        columnMap[key].fieldIndex = _.get(propertyObj, 'fields.raw.index', null);
-
-                        if(_.includes(defaultColumns, columnMap[key].columnName)){
-                            columnMap[key].$checked = true;
-                        }
-                        columnMap[key].displayName = columnMap[key].columnName + '[' + columnMap[key].columnType + ']';
-                        columnMap[key].caption = columnMap[key].columnName;
+                        propertyObj.columnName = key;
+                        propertyObj.fieldIndex = _.get(propertyObj, 'fields.raw.index', null);
+                        columns.push(propertyObj);
                     });
                 });
-                return $q.when(columnMap);
+                return $q.when(columns);
             } else {
-                return $q.when(columnMap);
+                return $q.when(columns);
             }
 
         });

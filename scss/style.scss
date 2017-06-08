@@ -41,12 +41,18 @@
 
 .log-query-analyzer-content {
 
-  >.field-panel{
+  > .field-panel {
     display: inline-block;
     width: 300px;
+
+    .pagination-grid {
+      th{
+        border-color: $table-head-bg;
+      }
+    }
   }
 
-  >.query-panel{
+  > .query-panel {
     display: inline-block;
 
     .query-condition-panel {
@@ -60,7 +66,7 @@
 
 .query-condition-dialog-content {
   textarea {
-    height:500px;
+    height: 500px;
     resize: none;
   }
 }
