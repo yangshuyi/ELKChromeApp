@@ -95,8 +95,8 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                             $scope.currentThElem = th;
                             var offset = $($event.currentTarget).offset();
                             var headDivOffset = headDiv.offset();
-                            helperLayer.css('left', (offset.left - headDivOffset.left + 15) + 'px');
-                            helperLayer.css('top', (offset.top - headDivOffset.top + headDiv.outerHeight(true)) + 'px');
+                            helperLayer.css('left', (offset.left - headDivOffset.left + 15 + $(th).outerWidth(true) - helperLayer.outerWidth(true)) + 'px');
+                            helperLayer.css('top', (offset.top - headDivOffset.top + headDiv.outerHeight(true) - helperLayer.outerHeight(true)) + 'px');
                             helperLayer.show();
                         }
                     });
@@ -138,11 +138,10 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 if (!column) {
                     return;
                 }
-                var columnWidth = $($scope.currentThElem).width();
-                column.headStyle.width = columnWidth + 50 + "px";
-                column.cellStyle.width = columnWidth + 50 + "px";
                 //hardCode
-                column.width = column.width + 50;
+                column.displayWidth = column.displayWidth + 50;
+                column.headStyle.width = column.displayWidth + "px";
+                column.cellStyle.width = column.displayWidth + "px";
             };
 
             $scope.minusTdWidth = function () {
@@ -150,12 +149,10 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 if (!column) {
                     return;
                 }
-                var columnWidth = $($scope.currentThElem).width();
-                if (columnWidth > 100) {
-                    column.headStyle.width = columnWidth - 50 + "px";
-                    column.cellStyle.width = columnWidth - 50 + "px";
-                    //hardCode
-                    column.width = column.width - 50;
+                if (column.displayWidth > 100) {
+                    column.displayWidth = column.displayWidth - 50;
+                    column.headStyle.width = column.displayWidth + "px";
+                    column.cellStyle.width = column.displayWidth + "px";
                 }
             };
 

@@ -50,79 +50,61 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 $scope.columns = _.sortBy(columns, 'columnName');
 
                 $scope.columnGridApi.setGridData($scope.columns, columns.length);
-                $scope.onColumnChanged();
 
-            });
-
-            logQueryAnalyzerService.loadQueryProfiles().then(function (profiles) {
-                $scope.model.queryProfiles = profiles;
+                logQueryAnalyzerService.loadQueryProfiles().then(function (profiles) {
+                    $scope.model.queryProfiles = profiles;
+                });
             });
 
             $scope.resizeLayout();
         };
 
         $scope.onColumnChanged = function () {
-            var selectedColumns = $scope.columnGridApi.getCheckedRows();
-
-            var columnDefs = [];
-            _.each(selectedColumns, function (column) {
-                var columnDef = {
-                    field: column.columnName,
-                    displayName: column.caption,
-                    enableSorting: false,
-                    headStyle: {width: '100px'},
-                    cellStyle: {width: '100px'},
-                };
-                columnDefs.push(columnDef);
-            });
-            $scope.queryResultGridOptions.columnDefs = columnDefs;
-
-            if (profile['@source'] && _.isArray(profile['@source'])) {
-                _.each(profile['@source'], function (source) {
-                    var column = _.find($scope.columns, {columnName: source});
-                    if (column) {
-                        column.$checked = true;
-                    }
-                });
-            } else {
-                //尚未设置显示的列
-                _.each($scope.columns, function (column) {
-                    if (column.defaultChecked) {
-                        profile.contentObj['@source'] = _.map($scope.columns, 'columnName');
-                        column.$checked = true;
-                    }
-                });
-                profile.content = JSON.stringify(profile.contentObj);
+            if ($scope.model.selectedQueryProfile == null) {
+                return;
             }
+
+            var profile = $scope.model.selectedQueryProfile;
+            _.each(profile['@source'], function (source) {
+                var column = _.find($scope.columns, {columnName: source});
+                if (column) {
+                    profile['@source'].$checked = column.$checked;
+                }
+            });
+            $scope.renderQueryResultGrid(profile);
         };
 
-        $scope.onQueryProfileSelected = function () {
-            var profile = $scope.model.selectedQueryProfile;
+        $scope.onQueryProfileSelected = function (profile) {
             if (profile == null) {
                 return;
             }
 
             $scope.columnGridApi.checkAllRows(false, true);
 
-            if (profile['@source'] && _.isArray(profile['@source'])) {
-                _.each(profile['@source'], function (source) {
-                    var column = _.find($scope.columns, {columnName: source});
-                    if (column) {
-                        column.$checked = true;
-                    }
-                });
-            } else {
-                //尚未设置显示的列
-                _.each($scope.columns, function (column) {
-                    if (column.defaultChecked) {
-                        profile.contentObj['@source'] = _.map($scope.columns, 'columnName');
-                        column.$checked = true;
-                    }
-                });
-                profile.content = JSON.stringify(profile.contentObj);
-            }
+            //重设左边的显示列
+            _.each(profile['@source'], function (source) {
+                var column = _.find($scope.columns, {columnName: source});
+                if (column) {
+                    column.$checked = true;
+                }
+            });
+            $scope.renderQueryResultGrid(profile);
+        };
 
-            $scope.queryResultGridOptions.columnDefs = columnDefs;
+        /**
+         * 绘制右侧Grid Column
+         */
+        $scope.renderQueryResultGrid = function (profile) {
+            if (profile) {
+                var columnDefs = _.filter(profile['@source'], {'$checked': true});
+                _.sortBy(columnDefs, ['displayOrder', 'displayName']);
+                _.each(columnDefs, function (column) {
+                    column.field = column.columnName;
+                    column.headStyle = {width: column.displayWidth};
+                    column.cellStyle = {width: column.displayWidth};
+                });
+                $scope.queryResultGridOptions.columnDefs = columnDefs;
+            }
         };
 
         $scope.openQueryConditionDialog = function () {
