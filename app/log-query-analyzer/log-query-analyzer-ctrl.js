@@ -142,6 +142,40 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
                 $scope.queryResultGridApi.setGridData([], 0);
                 $scope.renderQueryResultGrid(profile);
+
+                var infoArray = [];
+                var sortArray = profile.content.sort;
+                if(sortArray){
+                    _.each(sortArray, function(sortItem){
+                        _.each(sortItem, function(item, columnName){
+                            var column = _.find($scope.columns, {columnName:columnName});
+                            if(column){
+                                infoArray.push(column.displayName + ' '+item.order);
+                            }else{
+                                infoArray.push(columnName + ' '+item.order);
+                            }
+                        });
+                    });
+                }
+                $scope.model.profileSortInfo = infoArray.join(', ');
+                $scope.model.profileQuerySize = profile.content.size;
+
+                var queryEnv = logQueryAnalyzerService.getQueryEnv(profile.content);
+                var queryApp = logQueryAnalyzerService.getQueryApp(profile.content);
+                var queryHost = logQueryAnalyzerService.getQueryHost(profile.content);
+
+                $scope.model.profileQueryInfo = {
+                    env: {
+                        positive: queryEnv.positive.join(', '),
+                        nagtive: queryEnv.nagtive.join(', ')
+                    }, app: {
+                        positive: queryApp.positive.join(', '),
+                        nagtive: queryApp.nagtive.join(', ')
+                    },host: {
+                        positive: queryHost.positive.join(', '),
+                        nagtive: queryHost.nagtive.join(', ')
+                    }
+                };
                 $scope.query();
             });
         };
@@ -202,11 +236,12 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
         $scope.resizeLayout = function () {
             $timeout(function () {
-                var queryPanelWidth = ($(window).width() - $('.field-panel').width() - 5)
+                var footerHeight = $('.footer-panel').outerHeight(true);
+                var queryPanelWidth = ($(window).width() - $('.field-panel').width() - 5);
                 $('.query-panel').width(queryPanelWidth);
 
-                $scope.columnGridApi.resizeGridLayout(null, $(window).height() - 75);
-                $scope.queryResultGridApi.resizeGridLayout($('.query-result-panel').width(), $(window).height() - 115);
+                $scope.columnGridApi.resizeGridLayout(null, $(window).height() - footerHeight - 70);
+                $scope.queryResultGridApi.resizeGridLayout($('.query-result-panel').width(), $(window).height() - footerHeight - 110);
             }, 500);
         };
 

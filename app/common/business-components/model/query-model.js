@@ -83,7 +83,7 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 columnName: "COMMON_COUNT",
                 queryName: 'COMMON_COUNT.raw',
                 caption: {
-                    default: '數量统计',
+                    default: '数量统计',
                 },
                 defaultSetting: {
                     $checked: false,
@@ -315,9 +315,83 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
         }
     };
 
+
+    var getQueryTerm = function(content, columnName){
+        var positiveAppArray = [];
+        var nagtiveAppArray = [];
+        var returnObj =  {'positive':positiveAppArray, 'nagtive':nagtiveAppArray};
+
+        var column = definedColumnsMap[columnName];
+        if(column == null){
+            return returnObj;
+        }
+        var queryName = column.queryName;
+
+        _.each(content.query.bool.must, function(element){
+            if(element['term']!=null && element['term'][queryName]!=null){
+                positiveAppArray.push(element['term'][queryName]);
+            }
+        });
+
+        if(!positiveAppArray){
+            //如果没有MUST节点，查询should节点
+            _.each(content.query.bool.should, function(element){
+                if(element['term']!=null && element['term'][queryName]!=null){
+                    positiveAppArray.push(element['term'][queryName]);
+                }
+            });
+
+            _.each(content.query.bool.must_not, function(element){
+                if(element['term']!=null && element['term'][queryName]!=null){
+                    _.remove(positiveAppArray, element['term'][queryName]);
+                    nagtiveAppArray.push(element['term'][queryName]);
+                }
+            });
+        }
+        return returnObj;
+    };
+
+    var getQueryPrefix = function(content, columnName){
+        var positiveAppArray = [];
+        var nagtiveAppArray = [];
+        var returnObj =  {'positive':positiveAppArray, 'nagtive':nagtiveAppArray};
+
+        var column = definedColumnsMap[columnName];
+        if(column == null){
+            return returnObj;
+        }
+        var queryName = column.queryName;
+
+        _.each(content.query.bool.must, function(element){
+            if(element['prefix']!=null && element['prefix'][queryName]!=null){
+                positiveAppArray.push(element['prefix'][queryName]);
+            }
+        });
+
+        if(!positiveAppArray){
+            //如果没有MUST节点，查询should节点
+            _.each(content.query.bool.should, function(element){
+                if(element['prefix']!=null && element['prefix'][queryName]!=null){
+                    positiveAppArray.push(element['prefix'][queryName]);
+                }
+            });
+
+            _.each(content.query.bool.must_not, function(element){
+                if(element['prefix']!=null && element['prefix'][queryName]!=null){
+                    _.remove(positiveAppArray, element['prefix'][queryName]);
+                    nagtiveAppArray.push(element['prefix'][queryName]);
+                }
+            });
+        }
+        return returnObj;
+    };
+
+
     return {
         setIndexColumns: setIndexColumns,
         getIndexColumns: getIndexColumns,
+        getQueryTerm: getQueryTerm,
+        getQueryPrefix: getQueryPrefix,
 
     };
 }]);

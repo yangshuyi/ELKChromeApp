@@ -41,7 +41,7 @@
 
 .log-query-analyzer-content {
 
-  > .field-panel {
+  .field-panel {
     display: inline-block;
     width: 300px;
 
@@ -51,8 +51,8 @@
       }
     }
   }
- 
-  > .query-panel {
+
+  .query-panel {
     display: inline-block;
 
     .query-condition-panel {
@@ -77,6 +77,29 @@
         }
       }
     }
+  }
+
+  .footer-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      margin: 0px 10px;
+
+      .info-positive {
+        margin: 0px 5px;
+        color: darkgreen;
+      }
+
+      .info-nagtive {
+        margin: 0px 5px;
+        color: darkred;
+        text-decoration: line-through
+      }
+
+    }
+
   }
 }
 

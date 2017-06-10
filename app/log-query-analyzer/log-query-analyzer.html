@@ -1,25 +1,36 @@
 <div class="log-query-analyzer-content">
-    <div class="field-panel">
-        <pagination-grid options="columnGridOptions" api="columnGridApi" on-row-checked="onColumnChanged" on-all-row-checked="onColumnChanged"></pagination-grid>
+    <div>
+        <div class="field-panel">
+            <pagination-grid options="columnGridOptions" api="columnGridApi" on-row-checked="onColumnChanged" on-all-row-checked="onColumnChanged"></pagination-grid>
+        </div>
+        <div class="query-panel">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 query-condition-panel">
+                        <dropdown-field ng-model="model.selectedQueryProfile" search-title="请选择模板" on-after-option-selected="onQueryProfileSelected" option-list="model.queryProfiles" option-text="name" option-value="name" style="width: 400px;">
+                        </dropdown-field>
+                        <input class="btn btn-primary" type="button" value="刷新" ng-click="reloadUserProfiles()"/>
+                        <div style="width:50px; display: inline-block;"></div>
+                        <input class="btn btn-primary" type="button" value="编辑查询条件" ng-click="openQueryConditionDialog()"/>
+                        <div style="flex:1"></div>
+                        <input class="btn btn-primary" type="button" value="查询" ng-click="query()"/>
+                    </div>
+                </div>
+                <div class="ccc-row row">
+                    <div class="col-md-12 query-result-panel">
+                        <scroll-grid options="queryResultGridOptions" api="queryResultGridApi" ></scroll-grid>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="query-panel">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 query-condition-panel">
-                    <dropdown-field ng-model="model.selectedQueryProfile" search-title="请选择模板" on-after-option-selected="onQueryProfileSelected" option-list="model.queryProfiles" option-text="name" option-value="name" style="width: 400px;">
-                    </dropdown-field>
-                    <input class="btn btn-primary" type="button" value="刷新" ng-click="reloadUserProfiles()"/>
-                    <div style="width:50px; display: inline-block;"></div>
-                    <input class="btn btn-primary" type="button" value="编辑查询条件" ng-click="openQueryConditionDialog()"/>
-                    <div style="flex:1"></div>
-                    <input class="btn btn-primary" type="button" value="查询" ng-click="query()"/>
-                </div>
-            </div>
-            <div class="ccc-row row">
-                <div class="col-md-12 query-result-panel">
-                    <scroll-grid options="queryResultGridOptions" api="queryResultGridApi" ></scroll-grid>
-                </div>
-            </div>
+    <div class="footer-panel">
+        <div>排序：{{model.profileSortInfo}}</div>
+        <div>最大记录数：{{model.profileQuerySize}}</div>
+        <div style="flex:1">当前环境：
+            ENV： <span class="info-positive">{{model.profileQueryInfo.env.positive}}</span><span class="info-nagtive">{{model.profileQueryInfo.env.nagtive}}</span>
+            APP： <span class="info-positive">{{model.profileQueryInfo.app.positive}}</span><span class="info-nagtive">{{model.profileQueryInfo.app.nagtive}}</span>
+            HOST： <span class="info-positive">{{model.profileQueryInfo.host.positive}}</span><span class="info-nagtive">{{model.profileQueryInfo.host.nagtive}}</span>
         </div>
     </div>
 </div>

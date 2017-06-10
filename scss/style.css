@@ -6411,24 +6411,37 @@ body {
     .navbar-default .connection-status-img.unconnected {
       background-color: red; }
 
-.log-query-analyzer-content > .field-panel {
+.log-query-analyzer-content .field-panel {
   display: inline-block;
   width: 300px; }
-  .log-query-analyzer-content > .field-panel .pagination-grid th {
+  .log-query-analyzer-content .field-panel .pagination-grid th {
     border-color: #2a89d8; }
-.log-query-analyzer-content > .query-panel {
+.log-query-analyzer-content .query-panel {
   display: inline-block; }
-  .log-query-analyzer-content > .query-panel .query-condition-panel {
+  .log-query-analyzer-content .query-panel .query-condition-panel {
     display: flex; }
-  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.priority-debug {
+  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-debug {
     background-color: lightgrey; }
-  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.priority-info {
+  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-info {
     background-color: white; }
-  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.priority-error {
+  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-error {
     background-color: red;
     color: white; }
-  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.warning {
+  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-warning {
     background-color: yellow; }
+.log-query-analyzer-content .footer-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .log-query-analyzer-content .footer-panel > div {
+    margin: 0px 10px; }
+    .log-query-analyzer-content .footer-panel > div .info-positive {
+      margin: 0px 5px;
+      color: darkgreen; }
+    .log-query-analyzer-content .footer-panel > div .info-nagtive {
+      margin: 0px 5px;
+      color: darkred;
+      text-decoration: line-through; }
 
 .query-condition-dialog-content textarea {
   height: 500px;

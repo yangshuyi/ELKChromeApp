@@ -82,7 +82,7 @@
     }
   },
   "from": 0,
-  "size": 1000,
+  "size": 500,
   "sort": [
     {
       "timestamp": {
