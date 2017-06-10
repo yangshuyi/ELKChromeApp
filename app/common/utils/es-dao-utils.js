@@ -22,8 +22,8 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
     /**
      * query log
      */
-    function query(queryObj) {
-        var param = JSON.parse(JSON.stringify(queryObj));
+    function query(queryContent) {
+        var param = JSON.parse(JSON.stringify(queryContent));
         param = _.omit(param, ['@source']);
 
         var deferred = $q.defer();
@@ -35,7 +35,9 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
                 var datas = result.hits.hits;
                 var rows = [];
                 _.each(datas, function (data) {
-                    rows.push(_.get(data, '_source', null));
+                    var row = _.get(data, '_source', null);
+                    row['@timestamp'] = moment(new Date(row['timestamp'])).format('YYYY-MM-DD HH:mm:ssSSS');
+                    rows.push(row);
                 });
                 return deferred.resolve(rows);
             }

@@ -1,4 +1,36 @@
 {
+  "@source": [
+    {
+      "columnName": "@timestamp",
+      "displayOrder": 0,
+      "displayWidth": 160
+    },
+    {
+      "columnName": "APP",
+      "displayOrder": 1,
+      "displayWidth": 70
+    },
+    {
+      "columnName": "COMMON_REQ_USER_ID",
+      "displayOrder": 2,
+      "displayWidth": 100
+    },
+    {
+      "columnName": "MSG",
+      "displayOrder": 3,
+      "displayWidth": 500
+    },
+    {
+      "columnName": "PIT_PROCESS_FILE_NAME",
+      "displayOrder": 4,
+      "displayWidth": 160
+    },
+    {
+      "columnName": "PIT_PROCESS_FILE_TYPE",
+      "displayOrder": 5,
+      "displayWidth": 100
+    }
+  ],
   "query": {
     "bool": {
       "must": [
@@ -30,11 +62,12 @@
     }
   },
   "from": 0,
-  "size": 100,
+  "size": 1000,
   "sort": [
     {
-      "@timestamp": {
-        "order": "asc", "ignore_unmapped" : true
+      "timestamp": {
+        "order": "desc",
+        "ignore_unmapped": true
       }
     }
   ],

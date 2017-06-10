@@ -1,7 +1,7 @@
 'use strict';
-angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyzerCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$window', 'constants', 'commonDialogProvider', 'dialogProvider', 'notifyProvider'
+angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyzerCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$window', 'constants', 'commonDialogProvider', 'dialogProvider', 'notifyProvider', 'loadingMaskProvider'
     , 'esDaoUtils', 'logQueryAnalyzerService'
-    , function ($scope, $rootScope, $state, $timeout, $window, constants, commonDialogProvider, dialogProvider, notifyProvider
+    , function ($scope, $rootScope, $state, $timeout, $window, constants, commonDialogProvider, dialogProvider, notifyProvider, loadingMaskProvider
         , esDaoUtils, logQueryAnalyzerService) {
         /**
          * 页面加载逻辑
@@ -59,36 +59,91 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
             $scope.resizeLayout();
         };
 
+        /**
+         * 重新加载查询方案
+         */
+        $scope.reloadUserProfiles = function () {
+            logQueryAnalyzerService.loadQueryProfiles().then(function (profiles) {
+                $scope.model.queryProfiles = profiles;
+
+                if ($scope.model.selectedQueryProfile == null) {
+                    return;
+                }
+
+                var selectedProfile = _.find($scope.model.queryProfiles, {name: $scope.model.selectedQueryProfile.name});
+                $scope.model.selectedQueryProfile = selectedProfile;
+                $scope.onQueryProfileSelected($scope.model.selectedQueryProfile);
+            });
+        };
+
         $scope.onColumnChanged = function () {
             if ($scope.model.selectedQueryProfile == null) {
                 return;
             }
 
             var profile = $scope.model.selectedQueryProfile;
-            _.each(profile['@source'], function (source) {
-                var column = _.find($scope.columns, {columnName: source});
-                if (column) {
-                    profile['@source'].$checked = column.$checked;
+            var oldSource = profile.content['@source'];
+
+            profile.content['@source'] = [];
+            _.each($scope.columns, function (column) {
+                if (column.$checked) {
+                    var oldSourceItem = _.find(oldSource, {columnName: column.columnName});
+                    if (oldSourceItem) {
+                        //如果已存在，则直接获取
+                        profile.content['@source'].push(oldSourceItem);
+                    } else {
+                        //如果不存在，则用column上的默认值
+                        profile.content['@source'].push({
+                            columnName: column.columnName,
+                            displayName: column.displayName,
+                            displayOrder: profile.content['@source'].length + 1,
+                            displayWidth: column.defaultSetting.displayWidth
+                        });
+                    }
                 }
             });
             $scope.renderQueryResultGrid(profile);
         };
 
         $scope.onQueryProfileSelected = function (profile) {
-            if (profile == null) {
-                return;
-            }
-
-            $scope.columnGridApi.checkAllRows(false, true);
-
-            //重设左边的显示列
-            _.each(profile['@source'], function (source) {
-                var column = _.find($scope.columns, {columnName: source});
-                if (column) {
-                    column.$checked = true;
+            $timeout(function(){
+                if (profile == null) {
+                    return;
                 }
+
+                //重设左边的显示列
+                if (profile.content['@source'] && profile.content['@source'].length > 0) {
+                    //如果有source定义，则反刷左侧列表
+                    var source = profile.content['@source'];
+                    _.each($scope.columns, function (column) {
+                        var sourceItem = _.find(source, {columnName: column.columnName});
+                        if (sourceItem) {
+                            column.$checked = true;
+                            sourceItem.displayName = column.displayName;
+                        } else {
+                            column.$checked = false;
+                        }
+                    })
+                } else {
+                    //如果无source定义，则由左侧列表刷profile
+                    profile.content['@source'] = [];
+                    _.each($scope.columns, function (column) {
+                        column.$checked = column.defaultSetting.$checked;
+                        if (column.defaultSetting.$checked) {
+                            profile.content['@source'].push({
+                                columnName: column.columnName,
+                                displayName: column.displayName,
+                                displayOrder: column.defaultSetting.displayOrder,
+                                displayWidth: column.defaultSetting.displayWidth
+                            });
+                        }
+                    });
+                }
+
+                $scope.queryResultGridApi.setGridData([], 0);
+                $scope.renderQueryResultGrid(profile);
+                $scope.query();
             });
-            $scope.renderQueryResultGrid(profile);
         };
 
         /**
@@ -96,14 +151,14 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
          */
         $scope.renderQueryResultGrid = function (profile) {
             if (profile) {
-                var columnDefs = _.filter(profile['@source'], {'$checked': true});
-                _.sortBy(columnDefs, ['displayOrder', 'displayName']);
-                _.each(columnDefs, function (column) {
-                    column.field = column.columnName;
-                    column.headStyle = {width: column.displayWidth};
-                    column.cellStyle = {width: column.displayWidth};
+                profile.content['@source'] = _.sortBy(profile.content['@source'], ['displayOrder', 'displayName']);
+                _.each(profile.content['@source'], function (sourceItem, idx) {
+                    sourceItem.field = sourceItem.columnName;
+                    sourceItem.displayOrder = idx;
+                    sourceItem.headStyle = {width: sourceItem.displayWidth};
+                    sourceItem.cellStyle = {width: sourceItem.displayWidth};
                 });
-                $scope.queryResultGridOptions.columnDefs = columnDefs;
+                $scope.queryResultGridOptions.columnDefs = profile.content['@source'];
             }
         };
 
@@ -112,7 +167,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                     templateUrl: 'app/log-query-analyzer/query-condition-dialog.html',
                     controllerName: 'queryConditionDialogCtrl',
                     resolves: {
-                        data: {queryText: $scope.model.selectedQueryProfile.content}
+                        queryProfile: $scope.model.selectedQueryProfile
                     },
                     options: {
                         title: '编辑查询条件',
@@ -135,9 +190,12 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
         };
 
         $scope.query = function () {
-            logQueryAnalyzerService.query($scope.model.selectedQueryProfile.contentObj).then(function (rows) {
+            loadingMaskProvider.start('查询中。。。');
+            logQueryAnalyzerService.query($scope.model.selectedQueryProfile.content).then(function (rows) {
                 $scope.queryResultGridApi.setGridData(rows, rows.length);
                 notifyProvider.notify("查询到[" + rows.length + "]条结果。");
+
+                loadingMaskProvider.complete();
             });
         };
 

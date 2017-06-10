@@ -60,25 +60,56 @@
           }
         },
         {
-          "prefix": {
-            "host.raw": "192.168.200.19:"
+          "term": {
+            "priority.raw": "INFO"
           }
         },
         {
-          "wildcard": {
-            "COMMON_REQ_CLIENT_IP.raw": "*.*"
+          "term": {
+            "AUDIT_REPORT_TYPE.raw": "02"
           }
         },
         {
           "range": {
             "@timestamp": {
-              "gt": "2017-06-03T06:40:16.515Z"
+              "gt": "2017-06-08T06:40:16.515Z"
             }
           }
         }
       ],
       "must_not": [],
-      "should": []
+      "should": [
+        {
+          "term": {
+            "AUDIT_NODE_TYPE.raw": "01"
+          }
+        },
+        {
+          "term": {
+            "AUDIT_NODE_TYPE.raw": "03"
+          }
+        },
+        {
+          "term": {
+            "AUDIT_NODE_TYPE.raw": "99"
+          }
+        },
+        {
+          "term": {
+            "AUDIT_CCC_COMPANY_CODE.raw": "001082000001"
+          }
+        },
+        {
+          "term": {
+            "AUDIT_CLAIM_ID.raw": "31365"
+          }
+        },
+        {
+          "term": {
+            "AUDIT_JOB_TASK_ID.raw": "6694867"
+          }
+        }
+      ]
     }
   },
   "from": 0,
@@ -86,8 +117,7 @@
   "sort": [
     {
       "timestamp": {
-        "order": "desc",
-        "ignore_unmapped": true
+        "order": "asc"
       }
     }
   ],

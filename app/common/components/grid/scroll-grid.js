@@ -79,8 +79,8 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 $scope.columnCount = $scope.columns.length;
 
                 var deferred = $q.defer();
-                $timeout(function () {
 
+                $timeout(function () {
                     //注册事件
                     var headDiv = $('.head-container', $element);
                     var contentDiv = $('.content-container', $element);
@@ -89,13 +89,13 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                     });
 
                     $('th', headDiv).mouseover(function ($event) {
-                        var th = $event.currentTarget;
-                        if (th) {
+                        var $th = $($event.currentTarget);
+                        if ($th && $th.attr('field')) {
                             var helperLayer = $('.helper-layer', $element);
-                            $scope.currentThElem = th;
-                            var offset = $($event.currentTarget).offset();
+                            $scope.currentThElem = $th;
+                            var offset = $th.offset();
                             var headDivOffset = headDiv.offset();
-                            helperLayer.css('left', (offset.left - headDivOffset.left + 15 + $(th).outerWidth(true) - helperLayer.outerWidth(true)) + 'px');
+                            helperLayer.css('left', (offset.left - headDivOffset.left + 15 + $th.outerWidth(true) - helperLayer.outerWidth(true)) + 'px');
                             helperLayer.css('top', (offset.top - headDivOffset.top + headDiv.outerHeight(true) - helperLayer.outerHeight(true)) + 'px');
                             helperLayer.show();
                         }
@@ -127,7 +127,7 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
             $scope.getCurrentColumn = function () {
                 var column = null;
                 if ($scope.currentThElem) {
-                    var fieldName = $($scope.currentThElem).attr('field');
+                    var fieldName = $scope.currentThElem.attr('field');
                     column = _.find($scope.columns, {field: fieldName});
                 }
                 return column;
@@ -139,7 +139,7 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                     return;
                 }
                 //hardCode
-                column.displayWidth = column.displayWidth + 50;
+                column.displayWidth = column.displayWidth + 20;
                 column.headStyle.width = column.displayWidth + "px";
                 column.cellStyle.width = column.displayWidth + "px";
             };
@@ -149,8 +149,8 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                 if (!column) {
                     return;
                 }
-                if (column.displayWidth > 100) {
-                    column.displayWidth = column.displayWidth - 50;
+                if (column.displayWidth > 40) {
+                    column.displayWidth = column.displayWidth - 20;
                     column.headStyle.width = column.displayWidth + "px";
                     column.cellStyle.width = column.displayWidth + "px";
                 }

@@ -6420,6 +6420,15 @@ body {
   display: inline-block; }
   .log-query-analyzer-content > .query-panel .query-condition-panel {
     display: flex; }
+  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.priority-debug {
+    background-color: lightgrey; }
+  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.priority-info {
+    background-color: white; }
+  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.priority-error {
+    background-color: red;
+    color: white; }
+  .log-query-analyzer-content > .query-panel .query-result-panel .scroll-grid .content-container tr.warning {
+    background-color: yellow; }
 
 .query-condition-dialog-content textarea {
   height: 500px;

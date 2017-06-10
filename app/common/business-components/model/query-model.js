@@ -8,19 +8,19 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 queryName: '@timestamp',
 
                 caption: {
-                    default: '時間戳',
+                    default: '时间戳(中国)',
                 },
                 defaultSetting: {
                     $checked: true,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 160,
                 },
             },
             "ENV": {
                 columnName: "ENV",
                 queryName: 'ENV.raw',
                 caption: {
-                    default: '環境',
+                    default: '环境',
                 },
                 defaultSetting: {
                     $checked: true,
@@ -32,11 +32,11 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 columnName: "APP",
                 queryName: 'APP.raw',
                 caption: {
-                    default: '應用',
+                    default: '应用',
                 }, defaultSetting: {
                     $checked: true,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 70,
                 },
 
             },
@@ -57,7 +57,7 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 columnName: "host",
                 queryName: 'host.raw',
                 caption: {
-                    default: '應用服務器IP',
+                    default: '应用服务器IP',
                 },
                 defaultSetting: {
                     $checked: false,
@@ -75,7 +75,7 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 defaultSetting: {
                     $checked: true,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 60,
                 },
 
             },
@@ -83,12 +83,12 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 columnName: "COMMON_COUNT",
                 queryName: 'COMMON_COUNT.raw',
                 caption: {
-                    default: '數量統計',
+                    default: '數量统计',
                 },
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 60,
                 },
 
             },
@@ -96,12 +96,12 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 columnName: "COMMON_REQ_TIMING",
                 queryName: 'COMMON_REQ_TIMING.raw',
                 caption: {
-                    default: '用戶請求縂耗時',
+                    default: '请求耗时',
                 },
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 60,
                 },
             },
 
@@ -109,12 +109,12 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 columnName: "COMMON_REQ_URL",
                 queryName: 'COMMON_REQ_URL.raw',
                 caption: {
-                    default: '用戶請求URL',
+                    default: '用戶请求URL',
                 },
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 400,
                 },
             },
             "COMMON_REQ_USER_ID": {
@@ -126,19 +126,19 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 50,
                 },
             },
             "COMMON_TIMING": {
                 columnName: "COMMON_TIMING",
                 queryName: 'COMMON_TIMING.raw',
                 caption: {
-                    default: '時間統計',
+                    default: '时间统计',
                 },
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 60,
                 },
             },
             "MSG": {
@@ -151,7 +151,7 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 500,
                 },
             },
             "stack_trace": {
@@ -163,7 +163,7 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 defaultSetting: {
                     $checked: false,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 300,
                 },
             },
             "BATCH_JOB_TASK_ID": {
@@ -307,6 +307,11 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
             column.displayName = column.caption.default;
         } else {
             column.displayName = column.columnName;
+            column.defaultSetting = {
+                $checked: false,
+                displayOrder: 0,
+                displayWidth: 100,
+            };
         }
     };
 

@@ -46,12 +46,12 @@
     width: 300px;
 
     .pagination-grid {
-      th{
+      th {
         border-color: $table-head-bg;
       }
     }
   }
-
+ 
   > .query-panel {
     display: inline-block;
 
@@ -60,6 +60,22 @@
     }
 
     .query-result-panel {
+
+      .scroll-grid .content-container {
+        tr.priority-debug {
+          background-color: lightgrey;
+        }
+        tr.priority-info {
+          background-color: white;
+        }
+        tr.priority-error {
+          background-color: red;
+          color: white;
+        }
+        tr.priority-warning {
+          background-color: yellow;
+        }
+      }
     }
   }
 }

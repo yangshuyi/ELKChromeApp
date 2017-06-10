@@ -1,31 +1,35 @@
 'use strict';
-angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryConditionDialogCtrl', ['$scope', '$q', 'constants', 'commonDialogProvider', 'data',
-    function ($scope, $q, constants, commonDialogProvider, data) {
+angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryConditionDialogCtrl', ['$scope', '$q', 'constants', 'commonDialogProvider', 'queryProfile',
+    function ($scope, $q, constants, commonDialogProvider, queryProfile) {
         $scope.onLoad = function () {
-            $scope.model = {queryText: data.queryText}
+            var queryText = JSON.stringify(queryProfile.content);
+
+            $scope.model = {queryText: queryText}
         };
 
         $scope.verify = function(){
             var parseErrorMsg = null;
+            var obj = null;
             try{
-                JSON.parse($scope.model.queryText);
+                obj = JSON.parse($scope.model.queryText);
             }
             catch(e){
                 parseErrorMsg=e;
             }
             if(parseErrorMsg){
                 commonDialogProvider.alert("Parse JSON error");
-                return false;
+                return null;
             }
-            return true;
+            return obj;
         };
 
         /**
          *
          */
         $scope.confirm = function () {
-            if($scope.verify()){
-                $scope.result = $scope.model.queryText;
+            var obj = $scope.verify();
+            if(obj){
+                $scope.result = obj;
                 $scope.dialogApi.close();
             }
         };

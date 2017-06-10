@@ -1,6 +1,6 @@
 'use strict';
 angular.module('elkChromeApp', ['ui.router', 'restangular'
-    ,'common.utils', 'common.components.dialog', 'common.components.notify'
+    ,'common.utils', 'common.components.dialog', 'common.components.notify', 'common.components.loadingMask'
     ,'common.businessComponents.bar', 'common.businessComponents.interceptor','common.businessComponents.model'
     ,'elkChromeApp.defaultModule', 'elkChromeApp.logQueryAnalyzerModule']);
 

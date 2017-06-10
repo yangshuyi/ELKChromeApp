@@ -8,6 +8,7 @@
                 <div class="col-md-12 query-condition-panel">
                     <dropdown-field ng-model="model.selectedQueryProfile" search-title="请选择模板" on-after-option-selected="onQueryProfileSelected" option-list="model.queryProfiles" option-text="name" option-value="name" style="width: 400px;">
                     </dropdown-field>
+                    <input class="btn btn-primary" type="button" value="刷新" ng-click="reloadUserProfiles()"/>
                     <div style="width:50px; display: inline-block;"></div>
                     <input class="btn btn-primary" type="button" value="编辑查询条件" ng-click="openQueryConditionDialog()"/>
                     <div style="flex:1"></div>

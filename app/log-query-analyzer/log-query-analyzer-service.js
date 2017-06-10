@@ -1,16 +1,11 @@
 'use strict';
 angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerService", ['$q', 'urlUtils', 'esDaoUtils', 'queryProfileModel', 'queryModel', function ($q, urlUtils, esDaoUtils, queryProfileModel, queryModel) {
 
-    return {
-        loadQueryProfiles: loadQueryProfiles,
-        query: query,
-        fetchIndices: fetchIndices,
-    };
 
     /**
-     *
+     * 根据条件进行ELK日志查询
      */
-    function query(queryObj) {
+    var query = function (queryObj) {
         var deferred = $q.defer();
 
         esDaoUtils.query(queryObj).then(function (result) {
@@ -19,7 +14,11 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
         return deferred.promise;
     };
 
-    function fetchIndices() {
+    /**
+     * 查询索引下的所有的列
+     * @returns {Promise}
+     */
+    var fetchIndices = function () {
         var deferred = $q.defer();
 
         esDaoUtils.fetchIndices().then(function (columns) {
@@ -29,33 +28,41 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
         return deferred.promise;
     };
 
-    function loadQueryProfiles(){
+    var loadQueryProfiles = function () {
         var deferred = $q.defer();
 
         var columns = queryModel.getIndexColumns();
 
         queryProfileModel.loadProfileModels().then(function (profiles) {
-            _.each(profiles, function(profile){
-                if(profile['@source'] && _.isArray(profile['@source'])){
-                    _.each(profile['@source'] , function(source){
-                        var columnName = source.columnName;
-                        var column = _.find(columns, {columnName:columnName});
-                        if(column){
-                            _.assignIn(source, column.defaultSetting);
-                        }
-                    })
-                }else{
-                    profile['@source'] = [];
-                    _.each(columns, function(column){
-                        var source = column;
-                        _.assignIn(source, column.defaultSetting);
-
-                        profile['@source'].push(source);
-                    });
-                }
-            });
+            // _.each(profiles, function (profile) {
+            //     if (profile.content['@source'] && _.isArray(profile.content['@source'])) {
+            //         _.each(profile.content['@source'], function (source) {
+            //             var columnName = source.columnName;
+            //             var column = _.find(columns, {columnName: columnName});
+            //             if (column) {
+            //                 _.assignIn(source, column.defaultSetting);
+            //             }
+            //         })
+            //     } else {
+            //         profile.content['@source'] = [];
+            //         _.each(columns, function (column) {
+            //             var source = column;
+            //             _.assignIn(source, column.defaultSetting);
+            //
+            //             profile.content['@source'].push(source);
+            //         });
+            //     }
+            // });
             deferred.resolve(profiles);
         });
         return deferred.promise;
-    }
+    };
+
+
+
+    return {
+        loadQueryProfiles: loadQueryProfiles,
+        query: query,
+        fetchIndices: fetchIndices,
+    };
 }]);
