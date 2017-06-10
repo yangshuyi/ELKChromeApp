@@ -82,21 +82,21 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
             }
 
             var profile = $scope.model.selectedQueryProfile;
-            var oldSource = profile.content['@source'];
+            var oldSource = profile.content['@sources'];
 
-            profile.content['@source'] = [];
+            profile.content['@sources'] = [];
             _.each($scope.columns, function (column) {
                 if (column.$checked) {
                     var oldSourceItem = _.find(oldSource, {columnName: column.columnName});
                     if (oldSourceItem) {
                         //如果已存在，则直接获取
-                        profile.content['@source'].push(oldSourceItem);
+                        profile.content['@sources'].push(oldSourceItem);
                     } else {
                         //如果不存在，则用column上的默认值
-                        profile.content['@source'].push({
+                        profile.content['@sources'].push({
                             columnName: column.columnName,
                             displayName: column.displayName,
-                            displayOrder: profile.content['@source'].length + 1,
+                            displayOrder: profile.content['@sources'].length + 1,
                             displayWidth: column.defaultSetting.displayWidth
                         });
                     }
@@ -112,9 +112,9 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 }
 
                 //重设左边的显示列
-                if (profile.content['@source'] && profile.content['@source'].length > 0) {
+                if (profile.content['@sources'] && profile.content['@sources'].length > 0) {
                     //如果有source定义，则反刷左侧列表
-                    var source = profile.content['@source'];
+                    var source = profile.content['@sources'];
                     _.each($scope.columns, function (column) {
                         var sourceItem = _.find(source, {columnName: column.columnName});
                         if (sourceItem) {
@@ -126,11 +126,11 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                     })
                 } else {
                     //如果无source定义，则由左侧列表刷profile
-                    profile.content['@source'] = [];
+                    profile.content['@sources'] = [];
                     _.each($scope.columns, function (column) {
                         column.$checked = column.defaultSetting.$checked;
                         if (column.defaultSetting.$checked) {
-                            profile.content['@source'].push({
+                            profile.content['@sources'].push({
                                 columnName: column.columnName,
                                 displayName: column.displayName,
                                 displayOrder: column.defaultSetting.displayOrder,
@@ -151,14 +151,14 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
          */
         $scope.renderQueryResultGrid = function (profile) {
             if (profile) {
-                profile.content['@source'] = _.sortBy(profile.content['@source'], ['displayOrder', 'displayName']);
-                _.each(profile.content['@source'], function (sourceItem, idx) {
+                profile.content['@sources'] = _.sortBy(profile.content['@sources'], ['displayOrder', 'displayName']);
+                _.each(profile.content['@sources'], function (sourceItem, idx) {
                     sourceItem.field = sourceItem.columnName;
                     sourceItem.displayOrder = idx;
                     sourceItem.headStyle = {width: sourceItem.displayWidth};
                     sourceItem.cellStyle = {width: sourceItem.displayWidth};
                 });
-                $scope.queryResultGridOptions.columnDefs = profile.content['@source'];
+                $scope.queryResultGridOptions.columnDefs = profile.content['@sources'];
             }
         };
 

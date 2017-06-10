@@ -1,5 +1,5 @@
 {
-  "@source": [
+  "@sources": [
     {
       "columnName": "@timestamp",
       "displayOrder": 0,

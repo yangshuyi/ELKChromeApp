@@ -34,25 +34,6 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
         var columns = queryModel.getIndexColumns();
 
         queryProfileModel.loadProfileModels().then(function (profiles) {
-            // _.each(profiles, function (profile) {
-            //     if (profile.content['@source'] && _.isArray(profile.content['@source'])) {
-            //         _.each(profile.content['@source'], function (source) {
-            //             var columnName = source.columnName;
-            //             var column = _.find(columns, {columnName: columnName});
-            //             if (column) {
-            //                 _.assignIn(source, column.defaultSetting);
-            //             }
-            //         })
-            //     } else {
-            //         profile.content['@source'] = [];
-            //         _.each(columns, function (column) {
-            //             var source = column;
-            //             _.assignIn(source, column.defaultSetting);
-            //
-            //             profile.content['@source'].push(source);
-            //         });
-            //     }
-            // });
             deferred.resolve(profiles);
         });
         return deferred.promise;

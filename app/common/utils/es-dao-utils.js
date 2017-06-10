@@ -24,7 +24,7 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
      */
     function query(queryContent) {
         var param = JSON.parse(JSON.stringify(queryContent));
-        param = _.omit(param, ['@source']);
+        param = _.omit(param, ['@sources']);
 
         var deferred = $q.defer();
         var url = "/_search";
