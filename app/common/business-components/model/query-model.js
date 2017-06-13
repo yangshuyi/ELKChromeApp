@@ -51,7 +51,6 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                     displayOrder: 0,
                     displayWidth: 100,
                 },
-
             },
             "host": {
                 columnName: "host",
@@ -281,6 +280,29 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 $checked: false,
                 displayOrder: 0,
                 displayWidth: 100,
+            },
+        },
+
+        "INTERFACE_CODE": {
+            columnName: "INTERFACE_CODE",
+            queryName: 'INTERFACE_CODE.raw',
+            caption: {
+                default: '接口Code',
+            }, defaultSetting: {
+                $checked: false,
+                displayOrder: 0,
+                displayWidth: 150,
+            },
+        },
+        "REPAIR_ORDER_NO": {
+            columnName: "REPAIR_ORDER_NO",
+            queryName: 'REPAIR_ORDER_NO.raw',
+            caption: {
+                default: '接口-工单号',
+            }, defaultSetting: {
+                $checked: false,
+                displayOrder: 0,
+                displayWidth: 150,
             },
         },
     };

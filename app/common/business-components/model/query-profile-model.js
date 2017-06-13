@@ -17,6 +17,9 @@ angular.module('common.businessComponents.model').factory('queryProfileModel', [
 
         list.push(constructor('DRP-规则日志查询', 'query-profiles/DRP/Rule/Rule_Audit_Report.json'));
 
+
+        list.push(constructor('INTERFACE-日志查询', 'query-profiles/INTERFACE/Request_Flow.json'));
+
         list.push(constructor('PARTS-用户请求处理', 'query-profiles/PARTS/Flow/User_Request_Flow.json'));
 
         list.push(constructor('PARTS-PIT请求处理', 'query-profiles/PARTS/PIT/PIT_Import_Request_Flow.json'));
