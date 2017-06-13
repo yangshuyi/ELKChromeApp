@@ -225,7 +225,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
         $scope.query = function () {
             loadingMaskProvider.start('查询中。。。');
-            logQueryAnalyzerService.query($scope.model.selectedQueryProfile.content).then(function (rows) {
+            logQueryAnalyzerService.query($rootScope.env, $scope.model.selectedQueryProfile.content).then(function (rows) {
                 $scope.queryResultGridApi.setGridData(rows, rows.length);
                 notifyProvider.notify("查询到[" + rows.length + "]条结果。");
 

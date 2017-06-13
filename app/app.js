@@ -27,7 +27,8 @@ angular.module('elkChromeApp').config(['$stateProvider', '$urlRouterProvider', '
                     urlUtils.setAppErrorDialogProvider(commonDialogProvider);
                 };
 
-                $scope.onESServerConnection = function(esServerUrl){
+                $scope.onESServerConnection = function(env, esServerUrl){
+                    $rootScope.env = env;
                     $rootScope.esServerUrl = esServerUrl;
                     urlUtils.setRootPath($rootScope.esServerUrl);
                     esDaoUtils.connectToEs().then(function(clusterName){

@@ -1,5 +1,5 @@
 'use strict';
-angular.module('common.businessComponents.bar').directive("headBar", ['$rootScope', '$timeout', '$state','constants','$window', function ($rootScope, $timeout, $state,constants,$window) {
+angular.module('common.businessComponents.bar').directive("headBar", ['$rootScope', '$timeout', '$state','constants','$window', 'commonDialogProvider', function ($rootScope, $timeout, $state,constants,$window, commonDialogProvider) {
     return {
         restrict: 'E',
         scope: {
@@ -10,7 +10,27 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
         },
         link: function ($scope, element, attrs) {
             $scope.onLoad = function(){
-                $scope.esServerUrl = constants.CONFIG.ES_SERVER_URL;
+                $scope.model = {};
+                $scope.model.esServerUrl = constants.CONFIG.ES_SERVER_URL;
+
+                $scope.model.envOptions = [{
+                    text: 'TEST',
+                    value: 'TEST',
+                    apps: [{text: 'DRP', ips: ['192.168.200.19']}, {
+                        text: 'INTERFACE',
+                        ips: ['192.168.200.13']
+                    }, {text: 'PARTS', ips: ['192.168.200.75']}]
+                }, {
+                    text: 'PERFORMANCE',
+                    value: 'PERFORMANCE',
+                    apps: [{text: 'DRP', ips: ['192.168.200.23', '192.168.200.32']}, {
+                        text: 'INTERFACE',
+                        ips: []
+                    }, {text: 'PARTS', ips: []}]
+                }, {
+                    text: 'PROD', value: 'PROD',
+                    apps: [{text: 'DRP', ips: ['']}, {text: 'INTERFACE', ips: []}, {text: 'PARTS', ips: ['172.25.2.2']}]
+                }];
             };
 
 
@@ -19,7 +39,11 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
             };
 
             $scope.onActionBtnClicked = function(){
-                $scope.onEsServerConnection($scope.esServerUrl);
+                if(!$scope.model.env){
+                    commonDialogProvider.alert('请选择ENV');
+                    return;
+                }
+                $scope.onEsServerConnection($scope.model.env.value, $scope.model.esServerUrl);
             };
 
             $scope.onLoad();
@@ -36,9 +60,15 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
         '           </ul>' +
         '           <ul class="nav navbar-nav navbar-right">' +
         '               <li role="separator" class="divider"></li>' +
+        '               <li style="width: 200px; padding-top:5px;">' +
+        '                   <label-field caption="ENV" >' +
+        '                       <dropdown-field ng-model="model.env" search-title="请选择" option-list="model.envOptions" option-text="text" option-value="value" >' +
+        '                       </dropdown-field>' +
+        '                   </label-field>'+
+        '               </li>' +
         '               <li style="width: 500px; padding-top:5px;">' +
         '                   <label-field caption="ES Server" >' +
-        '                       <text-field ng-model="esServerUrl" type="text" text-field-class="es-server-field" action-caption="Connect" action-btn-support="true" action-btn-action="onActionBtnClicked"/>' +
+        '                       <text-field ng-model="model.esServerUrl" type="text" text-field-class="es-server-field" action-caption="Connect" action-btn-support="true" action-btn-action="onActionBtnClicked"/>' +
         '                   </label-field>'+
         '               </li>' +
         '               <li style="width: 40px; padding-top:5px;">' +

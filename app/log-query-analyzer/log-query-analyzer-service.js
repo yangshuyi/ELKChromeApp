@@ -5,10 +5,10 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
     /**
      * 根据条件进行ELK日志查询
      */
-    var query = function (queryObj) {
+    var query = function (env, queryObj) {
         var deferred = $q.defer();
 
-        esDaoUtils.query(queryObj).then(function (result) {
+        esDaoUtils.query(env, queryObj).then(function (result) {
             deferred.resolve(result);
         });
         return deferred.promise;

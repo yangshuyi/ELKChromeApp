@@ -22,9 +22,16 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
     /**
      * query log
      */
-    function query(queryContent) {
+    function query(env, queryContent) {
         var param = JSON.parse(JSON.stringify(queryContent));
         param = _.omit(param, ['@sources']);
+
+        if(env){
+            if(param.query.bool.must == null){
+                param.query.bool.must = []
+            }
+            param.query.bool.must.push({"term": {"ENV.raw": env}});
+        }
 
         var deferred = $q.defer();
         var url = "/_search";
