@@ -19,19 +19,33 @@ angular.module('common.utils').factory('constants', [function () {
             }
         },
 
-        CONFIG:{
-            ES_SERVER_URL: 'http://192.168.200.5:9200'
+        CONFIG: {
+            ES_SERVER_URL: 'http://192.168.200.5:9200',
+
+            environments: [{
+                name: 'TEST',
+                apps: [
+                    {name: 'DRP', ips: ['192.168.200.19']},
+                    {name: 'INTERFACE', ips: ['192.168.200.13']},
+                    {name: 'PARTS', ips: ['192.168.200.75']}
+                ]
+            }, {
+                name: 'PERFORMANCE',
+                apps: [
+                    {name: 'DRP', ips: ['192.168.200.23', '192.168.200.32']},
+                    {name: 'INTERFACE', ips: []},
+                    {name: 'PARTS', ips: []}
+                ]
+            }, {
+                name: 'PROD',
+                apps: [
+                    {name: 'DRP', ips: []},
+                    {name: 'INTERFACE', ips: []},
+                    {name: 'PARTS', ips: ['172.25.2.2']}
+                ]
+            }]
         },
 
-        //CodeTable
-        CODE_TYPE: {
-            PROVIDER: 'PT1001',//配件供应商
-            PART_TYPE: 'PT1002',//配件品级
-            BRAND: 'PT1003',//配件品牌
-            CERTIFICATOR: 'PT1004',//配件认证商
-            STOCK_TYPE: 'PT1005',//库存类型
-            ORDER_STATUS: 'PT1006', //订单状态
-        },
 
         SYSTEM_MSG: {
             SYSTEM_ERROR: '系统异常，请联系管理员或稍后尝试。'
@@ -43,7 +57,6 @@ angular.module('common.utils').factory('constants', [function () {
                 text: '',
             },
         },
-
 
 
     }

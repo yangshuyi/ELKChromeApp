@@ -18,19 +18,25 @@
                 </div>
                 <div class="ccc-row row">
                     <div class="col-md-12 query-result-panel">
-                        <scroll-grid options="queryResultGridOptions" api="queryResultGridApi" ></scroll-grid>
+                        <scroll-grid options="queryResultGridOptions" api="queryResultGridApi"></scroll-grid>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer-panel">
+        <label-field caption="APP：">
+            <div class="checkbox-group">
+                <checkbox-field caption="DRP" ng-model="model.isAppDRPSelected" ng-disabled="true"/>
+                <checkbox-field caption="PARTS" ng-model="model.isAppPARTSSelected" ng-disabled="true"/>
+                <checkbox-field caption="INTERFACE" ng-model="model.isAppINTERFACESelected" ng-disabled="true"/>
+            </div>
+        </label-field>
+        <label-field caption="HOST(s)：">
+            <text-field ng-model="model.hosts" type="text" style="width: 500px;"/>
+        </label-field>
+        <div style="flex:1"></div>
         <div>排序：{{model.profileSortInfo}}</div>
         <div>最大记录数：{{model.profileQuerySize}}</div>
-        <div style="flex:1">当前环境：
-            ENV： <span class="info-positive">{{model.profileQueryInfo.env.positive}}</span><span class="info-nagtive">{{model.profileQueryInfo.env.nagtive}}</span>
-            APP： <span class="info-positive">{{model.profileQueryInfo.app.positive}}</span><span class="info-nagtive">{{model.profileQueryInfo.app.nagtive}}</span>
-            HOST： <span class="info-positive">{{model.profileQueryInfo.host.positive}}</span><span class="info-nagtive">{{model.profileQueryInfo.host.nagtive}}</span>
-        </div>
     </div>
 </div>

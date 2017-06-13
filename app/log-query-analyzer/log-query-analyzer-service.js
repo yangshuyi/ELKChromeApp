@@ -1,14 +1,14 @@
 'use strict';
-angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerService", ['$q', 'urlUtils', 'esDaoUtils', 'queryProfileModel', 'queryModel', function ($q, urlUtils, esDaoUtils, queryProfileModel, queryModel) {
+angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerService", ['$q','constants', 'urlUtils', 'esDaoUtils', 'queryProfileModel', 'queryModel', function ($q, constants, urlUtils, esDaoUtils, queryProfileModel, queryModel) {
 
 
     /**
      * 根据条件进行ELK日志查询
      */
-    var query = function (env, queryObj) {
+    var query = function (env, hostIps, queryObj) {
         var deferred = $q.defer();
 
-        esDaoUtils.query(env, queryObj).then(function (result) {
+        esDaoUtils.query(env, hostIps, queryObj).then(function (result) {
             deferred.resolve(result);
         });
         return deferred.promise;
@@ -59,12 +59,27 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
         return resultObj;
     };
 
+    var loadDefaultHostSettingByEnv = function(envName, apps){
+        var envObj = _.find(constants.CONFIG.environments, {name:envName});
+        var hosts = [];
+        if(envObj){
+            _.each(apps, function(app){
+                var appObj = _.find(envObj.apps, {name:app});
+                if(appObj){
+                    hosts = _.union(hosts, appObj.ips);
+                }
+            });
+        }
+        return hosts;
+    };
+
     return {
         loadQueryProfiles: loadQueryProfiles,
         query: query,
         getQueryEnv: getQueryEnv,
         getQueryApp: getQueryApp,
         getQueryHost: getQueryHost,
+        loadDefaultHostSettingByEnv: loadDefaultHostSettingByEnv,
         fetchIndices: fetchIndices,
     };
 }]);

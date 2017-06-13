@@ -13,24 +13,11 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
                 $scope.model = {};
                 $scope.model.esServerUrl = constants.CONFIG.ES_SERVER_URL;
 
-                $scope.model.envOptions = [{
-                    text: 'TEST',
-                    value: 'TEST',
-                    apps: [{text: 'DRP', ips: ['192.168.200.19']}, {
-                        text: 'INTERFACE',
-                        ips: ['192.168.200.13']
-                    }, {text: 'PARTS', ips: ['192.168.200.75']}]
-                }, {
-                    text: 'PERFORMANCE',
-                    value: 'PERFORMANCE',
-                    apps: [{text: 'DRP', ips: ['192.168.200.23', '192.168.200.32']}, {
-                        text: 'INTERFACE',
-                        ips: []
-                    }, {text: 'PARTS', ips: []}]
-                }, {
-                    text: 'PROD', value: 'PROD',
-                    apps: [{text: 'DRP', ips: ['']}, {text: 'INTERFACE', ips: []}, {text: 'PARTS', ips: ['172.25.2.2']}]
-                }];
+                $scope.model.envOptions = [];
+                _.each(constants.CONFIG.environments, function(env){
+                    $scope.model.envOptions.push({text:env.name, value:env.name});
+                });
+
             };
 
 

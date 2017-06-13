@@ -160,22 +160,16 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 $scope.model.profileSortInfo = infoArray.join(', ');
                 $scope.model.profileQuerySize = profile.content.size;
 
-                var queryEnv = logQueryAnalyzerService.getQueryEnv(profile.content);
                 var queryApp = logQueryAnalyzerService.getQueryApp(profile.content);
-                var queryHost = logQueryAnalyzerService.getQueryHost(profile.content);
 
-                $scope.model.profileQueryInfo = {
-                    env: {
-                        positive: queryEnv.positive.join(', '),
-                        nagtive: queryEnv.nagtive.join(', ')
-                    }, app: {
-                        positive: queryApp.positive.join(', '),
-                        nagtive: queryApp.nagtive.join(', ')
-                    },host: {
-                        positive: queryHost.positive.join(', '),
-                        nagtive: queryHost.nagtive.join(', ')
-                    }
-                };
+                $scope.model.isAppDRPSelected = _.includes( queryApp.positive, 'DRP');
+                $scope.model.isAppPARTSSelected = _.includes( queryApp.positive, 'PARTS');
+                $scope.model.isAppINTERFACESelected = _.includes( queryApp.positive, 'INTERFACE');
+
+                $scope.model.defaultHostArray = logQueryAnalyzerService.loadDefaultHostSettingByEnv($rootScope.env, queryApp.positive);
+                $scope.model.hosts = $scope.model.defaultHostArray.join(',');
+
+
                 $scope.query();
             });
         };
@@ -225,7 +219,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
         $scope.query = function () {
             loadingMaskProvider.start('查询中。。。');
-            logQueryAnalyzerService.query($rootScope.env, $scope.model.selectedQueryProfile.content).then(function (rows) {
+            logQueryAnalyzerService.query($rootScope.env, $scope.model.hosts, $scope.model.selectedQueryProfile.content).then(function (rows) {
                 $scope.queryResultGridApi.setGridData(rows, rows.length);
                 notifyProvider.notify("查询到[" + rows.length + "]条结果。");
 
