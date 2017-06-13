@@ -22,7 +22,7 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
     /**
      * query log
      */
-    function query(env, queryContent) {
+    function query(env, hostIps, queryContent) {
         var param = JSON.parse(JSON.stringify(queryContent));
         param = _.omit(param, ['@sources']);
 
@@ -31,6 +31,14 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
                 param.query.bool.must = []
             }
             param.query.bool.must.push({"term": {"ENV.raw": env}});
+        }
+        if(hostIps){
+            if(param.query.bool.should == null){
+                param.query.bool.should = []
+            }
+            _.each(hostIps, function(ip){
+                param.query.bool.should.push({"prefix": {"host.raw": ip}});
+            });
         }
 
         var deferred = $q.defer();
