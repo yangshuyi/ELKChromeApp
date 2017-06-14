@@ -11,19 +11,24 @@
       "displayWidth": 70
     },
     {
-      "columnName": "COMMON_REQ_CLIENT_IP",
+      "columnName": "META_DATA_PROCESS_ID",
       "displayOrder": 2,
-      "displayWidth": 100
+      "displayWidth": 150
     },
     {
-      "columnName": "COMMON_REQ_USER_ID",
+      "columnName": "META_DATA_VEHICLE_SERIES_ID",
       "displayOrder": 3,
       "displayWidth": 50
     },
     {
+      "columnName": "META_DATA_JSON_FILE_TYPE",
+      "displayOrder": 4,
+      "displayWidth": 70
+    },
+    {
       "columnName": "MSG",
       "displayOrder": 6,
-      "displayWidth": 300
+      "displayWidth": 400
     },
     {
       "columnName": "stack_trace",
@@ -51,12 +56,12 @@
       "must": [
         {
           "term": {
-            "APP.raw": "PARTS"
+            "APP.raw": "DRP"
           }
         },
         {
           "term": {
-            "COMMON_REQ_URL.raw": "/parts/pit/import"
+            "COMMON_REQ_CLIENT_IP.raw": "MetaOperator"
           }
         }
       ],
@@ -68,8 +73,9 @@
   "size": 500,
   "sort": [
     {
-      "@timestamp": {
-        "order": "desc", "ignore_unmapped" : true
+      "timestamp": {
+        "order": "desc",
+        "ignore_unmapped": true
       }
     }
   ],

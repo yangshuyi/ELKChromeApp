@@ -305,6 +305,39 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 displayWidth: 150,
             },
         },
+        "META_DATA_PROCESS_ID": {
+            columnName: "META_DATA_PROCESS_ID",
+            queryName: 'META_DATA_PROCESS_ID.raw',
+            caption: {
+                default: '基础数据发布-Process Id',
+            }, defaultSetting: {
+                $checked: false,
+                displayOrder: 0,
+                displayWidth: 150,
+            },
+        },
+        "META_DATA_VEHICLE_SERIES_ID": {
+            columnName: "META_DATA_VEHICLE_SERIES_ID",
+            queryName: 'META_DATA_VEHICLE_SERIES_ID.raw',
+            caption: {
+                default: '基础数据发布-车系ID',
+            }, defaultSetting: {
+                $checked: false,
+                displayOrder: 0,
+                displayWidth: 150,
+            },
+        },
+        "META_DATA_JSON_FILE_TYPE": {
+            columnName: "META_DATA_JSON_FILE_TYPE",
+            queryName: 'META_DATA_JSON_FILE_TYPE.raw',
+            caption: {
+                default: '基础数据发布-文件类型',
+            }, defaultSetting: {
+                $checked: false,
+                displayOrder: 0,
+                displayWidth: 150,
+            },
+        },
     };
 
 

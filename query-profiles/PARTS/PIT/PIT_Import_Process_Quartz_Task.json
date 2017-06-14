@@ -43,11 +43,6 @@
           "term": {
             "COMMON_REQ_CLIENT_IP.raw": "PIT Process Quartz Task"
           }
-        },
-        {
-          "prefix": {
-            "host.raw": "192.168.200.75:"
-          }
         }
       ],
       "must_not": [],

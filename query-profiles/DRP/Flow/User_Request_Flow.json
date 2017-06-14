@@ -60,11 +60,6 @@
           }
         },
         {
-          "prefix": {
-            "host.raw": "192.168.200.19:"
-          }
-        },
-        {
           "wildcard": {
             "COMMON_REQ_CLIENT_IP.raw": "*.*"
           }
