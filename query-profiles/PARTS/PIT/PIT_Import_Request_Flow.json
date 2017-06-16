@@ -1,77 +1,42 @@
-{
-  "@sources": [
-    {
-      "columnName": "@timestamp",
-      "displayOrder": 0,
-      "displayWidth": 160
-    },
-    {
-      "columnName": "APP",
-      "displayOrder": 1,
-      "displayWidth": 70
-    },
-    {
-      "columnName": "COMMON_REQ_CLIENT_IP",
-      "displayOrder": 2,
-      "displayWidth": 100
-    },
-    {
-      "columnName": "COMMON_REQ_USER_ID",
-      "displayOrder": 3,
-      "displayWidth": 50
-    },
-    {
-      "columnName": "MSG",
-      "displayOrder": 6,
-      "displayWidth": 300
-    },
-    {
-      "columnName": "stack_trace",
-      "displayOrder": 7,
-      "displayWidth": 300
-    },
-    {
-      "columnName": "COMMON_REQ_TIMING",
-      "displayOrder": 8,
-      "displayWidth": 60
-    },
-    {
-      "columnName": "COMMON_TIMING",
-      "displayOrder": 9,
-      "displayWidth": 60
-    },
-    {
-      "columnName": "COMMON_COUNT",
-      "displayOrder": 10,
-      "displayWidth": 60
-    }
-  ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "APP.raw": "PARTS"
-          }
-        },
-        {
-          "term": {
-            "COMMON_REQ_URL.raw": "/parts/pit/import"
-          }
-        }
-      ],
-      "must_not": [],
-      "should": []
-    }
+[
+  {
+    "exclusiveType": "1",
+    "fieldName": "PRICE1",
+    "laborFeeManageRate": "100",
+    "manageRate": "100",
+    "managementFee": "0",
+    "partType": "01",
+    "text": "4S店价",
+    "value": "01"
   },
-  "from": 0,
-  "size": 500,
-  "sort": [
-    {
-      "@timestamp": {
-        "order": "desc", "ignore_unmapped" : true
-      }
-    }
-  ],
-  "aggs": {}
-}
+  {
+    "exclusiveType": "1",
+    "fieldName": "PRICE2",
+    "laborFeeManageRate": "100",
+    "manageRate": "100",
+    "managementFee": "0",
+    "partType": "02",
+    "text": "市场价",
+    "value": "02"
+  },
+  {
+    "exclusiveType": "1",
+    "fieldName": "PRICE3",
+    "laborFeeManageRate": "100",
+    "manageRate": "100",
+    "managementFee": "0",
+    "partType": "03",
+    "text": "测03价",
+    "value": "03"
+  },
+  {
+    "exclusiveType": "1",
+    "fieldName": "PRICE4",
+    "laborFeeManageRate": "100",
+    "manageRate": "100",
+    "managementFee": "0",
+    "partType": "04",
+    "text": "测04价",
+    "value": "04"
+  }
+]

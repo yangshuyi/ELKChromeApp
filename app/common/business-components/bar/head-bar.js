@@ -25,6 +25,18 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
                 $state.go('main.logQueryAnalyzer', {});
             };
 
+            $scope.onEnvSelected = function(selectedEnv){
+                if(!selectedEnv){
+                    return;
+                }
+
+                var envObj = _.find(constants.CONFIG.environments, {name: selectedEnv.value});
+                if(!envObj){
+                    return;
+                }
+                $scope.model.esServerUrl = envObj.esServerUrl;
+            }
+
             $scope.onActionBtnClicked = function(){
                 if(!$scope.model.env){
                     commonDialogProvider.alert('请选择ENV');
@@ -49,7 +61,7 @@ angular.module('common.businessComponents.bar').directive("headBar", ['$rootScop
         '               <li role="separator" class="divider"></li>' +
         '               <li style="width: 200px; padding-top:5px;">' +
         '                   <label-field caption="ENV" >' +
-        '                       <dropdown-field ng-model="model.env" search-title="请选择" option-list="model.envOptions" option-text="text" option-value="value" >' +
+        '                       <dropdown-field ng-model="model.env" search-title="请选择"  on-after-option-selected="onEnvSelected" option-list="model.envOptions" option-text="text" option-value="value" >' +
         '                       </dropdown-field>' +
         '                   </label-field>'+
         '               </li>' +

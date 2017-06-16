@@ -201,144 +201,143 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                     displayWidth: 100,
                 },
             },
-//AUDIT_JOB_TASK_ID
-        "AUDIT_CLAIM_ID": {
-            columnName: "AUDIT_CLAIM_ID",
-            queryName: 'AUDIT_CLAIM_ID.raw',
-            type: null,
-            caption: {
-                default: '定損單ID',
+            "AUDIT_CLAIM_ID": {
+                columnName: "AUDIT_CLAIM_ID",
+                queryName: 'AUDIT_CLAIM_ID.raw',
+                type: null,
+                caption: {
+                    default: '定损单ID',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
             },
-            defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 100,
+            "AUDIT_NODE_TYPE": {
+                columnName: "AUDIT_NODE_TYPE",
+                queryName: 'AUDIT_NODE_TYPE.raw',
+                type: null,
+                caption: {
+                    default: '规则环节',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
             },
-        },
-        "AUDIT_NODE_TYPE": {
-            columnName: "AUDIT_NODE_TYPE",
-            queryName: 'AUDIT_NODE_TYPE.raw',
-            type: null,
-            caption: {
-                default: '規則環節',
+            "AUDIT_REPORT_TYPE": {
+                columnName: "AUDIT_REPORT_TYPE",
+                queryName: 'AUDIT_REPORT_TYPE.raw',
+                type: null,
+                caption: {
+                    default: '报告类型',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
             },
-            defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 100,
-            },
-        },
-        "AUDIT_REPORT_TYPE": {
-            columnName: "AUDIT_REPORT_TYPE",
-            queryName: 'AUDIT_REPORT_TYPE.raw',
-            type: null,
-            caption: {
-                default: '報告類型',
-            },
-            defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 100,
-            },
-        },
 
 
-        "AUDIT_CCC_COMPANY_CODE": {
-            columnName: "AUDIT_CCC_COMPANY_CODE",
-            queryName: 'AUDIT_CCC_COMPANY_CODE.raw',
-            type: null,
-            caption: {
-                default: '執行的公司Code',
+            "AUDIT_CCC_COMPANY_CODE": {
+                columnName: "AUDIT_CCC_COMPANY_CODE",
+                queryName: 'AUDIT_CCC_COMPANY_CODE.raw',
+                type: null,
+                caption: {
+                    default: '执行的公司Code',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
             },
-            defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 100,
+            "PIT_PROCESS_FILE_NAME": {
+                columnName: "PIT_PROCESS_FILE_NAME",
+                queryName: 'PIT_PROCESS_FILE_NAME.raw',
+                type: null,
+                caption: {
+                    default: 'PIT数据处理文件名',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
             },
-        },
-        "PIT_PROCESS_FILE_NAME": {
-            columnName: "PIT_PROCESS_FILE_NAME",
-            queryName: 'PIT_PROCESS_FILE_NAME.raw',
-            type: null,
-            caption: {
-                default: 'PIT數據處理文件名',
+            "PIT_PROCESS_FILE_TYPE": {
+                columnName: "PIT_PROCESS_FILE_TYPE",
+                queryName: 'PIT_PROCESS_FILE_TYPE.raw',
+                type: null,
+                caption: {
+                    default: 'PIT数据处理文件類型',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
             },
-            defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 100,
-            },
-        },
-        "PIT_PROCESS_FILE_TYPE": {
-            columnName: "PIT_PROCESS_FILE_TYPE",
-            queryName: 'PIT_PROCESS_FILE_TYPE.raw',
-            type: null,
-            caption: {
-                default: 'PIT數據處理文件類型',
-            },
-            defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 100,
-            },
-        },
 
-        "INTERFACE_CODE": {
-            columnName: "INTERFACE_CODE",
-            queryName: 'INTERFACE_CODE.raw',
-            caption: {
-                default: '接口Code',
-            }, defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 150,
+            "INTERFACE_CODE": {
+                columnName: "INTERFACE_CODE",
+                queryName: 'INTERFACE_CODE.raw',
+                caption: {
+                    default: '接口Code',
+                }, defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 150,
+                },
             },
-        },
-        "REPAIR_ORDER_NO": {
-            columnName: "REPAIR_ORDER_NO",
-            queryName: 'REPAIR_ORDER_NO.raw',
-            caption: {
-                default: '接口-工单号',
-            }, defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 150,
+            "REPAIR_ORDER_NO": {
+                columnName: "REPAIR_ORDER_NO",
+                queryName: 'REPAIR_ORDER_NO.raw',
+                caption: {
+                    default: '接口-工单号',
+                }, defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 150,
+                },
             },
-        },
-        "META_DATA_PROCESS_ID": {
-            columnName: "META_DATA_PROCESS_ID",
-            queryName: 'META_DATA_PROCESS_ID.raw',
-            caption: {
-                default: '基础数据发布-Process Id',
-            }, defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 150,
+            "META_DATA_PROCESS_ID": {
+                columnName: "META_DATA_PROCESS_ID",
+                queryName: 'META_DATA_PROCESS_ID.raw',
+                caption: {
+                    default: '基础数据发布-Process Id',
+                }, defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 150,
+                },
             },
-        },
-        "META_DATA_VEHICLE_SERIES_ID": {
-            columnName: "META_DATA_VEHICLE_SERIES_ID",
-            queryName: 'META_DATA_VEHICLE_SERIES_ID.raw',
-            caption: {
-                default: '基础数据发布-车系ID',
-            }, defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 150,
+            "META_DATA_VEHICLE_SERIES_ID": {
+                columnName: "META_DATA_VEHICLE_SERIES_ID",
+                queryName: 'META_DATA_VEHICLE_SERIES_ID.raw',
+                caption: {
+                    default: '基础数据发布-车系ID',
+                }, defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 150,
+                },
             },
-        },
-        "META_DATA_JSON_FILE_TYPE": {
-            columnName: "META_DATA_JSON_FILE_TYPE",
-            queryName: 'META_DATA_JSON_FILE_TYPE.raw',
-            caption: {
-                default: '基础数据发布-文件类型',
-            }, defaultSetting: {
-                $checked: false,
-                displayOrder: 0,
-                displayWidth: 150,
+            "META_DATA_JSON_FILE_TYPE": {
+                columnName: "META_DATA_JSON_FILE_TYPE",
+                queryName: 'META_DATA_JSON_FILE_TYPE.raw',
+                caption: {
+                    default: '基础数据发布-文件类型',
+                }, defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 150,
+                },
             },
-        },
-    };
+        };
 
 
     var setIndexColumns = function (_columns) {
@@ -371,33 +370,33 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
     };
 
 
-    var getQueryTerm = function(content, columnName){
+    var getQueryTerm = function (content, columnName) {
         var positiveAppArray = [];
         var nagtiveAppArray = [];
-        var returnObj =  {'positive':positiveAppArray, 'nagtive':nagtiveAppArray};
+        var returnObj = {'positive': positiveAppArray, 'nagtive': nagtiveAppArray};
 
         var column = definedColumnsMap[columnName];
-        if(column == null){
+        if (column == null) {
             return returnObj;
         }
         var queryName = column.queryName;
 
-        _.each(content.query.bool.must, function(element){
-            if(element['term']!=null && element['term'][queryName]!=null){
+        _.each(content.query.bool.must, function (element) {
+            if (element['term'] != null && element['term'][queryName] != null) {
                 positiveAppArray.push(element['term'][queryName]);
             }
         });
 
-        if(!positiveAppArray){
+        if (!positiveAppArray) {
             //如果没有MUST节点，查询should节点
-            _.each(content.query.bool.should, function(element){
-                if(element['term']!=null && element['term'][queryName]!=null){
+            _.each(content.query.bool.should, function (element) {
+                if (element['term'] != null && element['term'][queryName] != null) {
                     positiveAppArray.push(element['term'][queryName]);
                 }
             });
 
-            _.each(content.query.bool.must_not, function(element){
-                if(element['term']!=null && element['term'][queryName]!=null){
+            _.each(content.query.bool.must_not, function (element) {
+                if (element['term'] != null && element['term'][queryName] != null) {
                     _.remove(positiveAppArray, element['term'][queryName]);
                     nagtiveAppArray.push(element['term'][queryName]);
                 }
@@ -406,33 +405,33 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
         return returnObj;
     };
 
-    var getQueryPrefix = function(content, columnName){
+    var getQueryPrefix = function (content, columnName) {
         var positiveAppArray = [];
         var nagtiveAppArray = [];
-        var returnObj =  {'positive':positiveAppArray, 'nagtive':nagtiveAppArray};
+        var returnObj = {'positive': positiveAppArray, 'nagtive': nagtiveAppArray};
 
         var column = definedColumnsMap[columnName];
-        if(column == null){
+        if (column == null) {
             return returnObj;
         }
         var queryName = column.queryName;
 
-        _.each(content.query.bool.must, function(element){
-            if(element['prefix']!=null && element['prefix'][queryName]!=null){
+        _.each(content.query.bool.must, function (element) {
+            if (element['prefix'] != null && element['prefix'][queryName] != null) {
                 positiveAppArray.push(element['prefix'][queryName]);
             }
         });
 
-        if(!positiveAppArray){
+        if (!positiveAppArray) {
             //如果没有MUST节点，查询should节点
-            _.each(content.query.bool.should, function(element){
-                if(element['prefix']!=null && element['prefix'][queryName]!=null){
+            _.each(content.query.bool.should, function (element) {
+                if (element['prefix'] != null && element['prefix'][queryName] != null) {
                     positiveAppArray.push(element['prefix'][queryName]);
                 }
             });
 
-            _.each(content.query.bool.must_not, function(element){
-                if(element['prefix']!=null && element['prefix'][queryName]!=null){
+            _.each(content.query.bool.must_not, function (element) {
+                if (element['prefix'] != null && element['prefix'][queryName] != null) {
                     _.remove(positiveAppArray, element['prefix'][queryName]);
                     nagtiveAppArray.push(element['prefix'][queryName]);
                 }

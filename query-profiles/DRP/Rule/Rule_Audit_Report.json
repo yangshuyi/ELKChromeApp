@@ -11,19 +11,24 @@
       "displayWidth": 70
     },
     {
-      "columnName": "COMMON_REQ_CLIENT_IP",
-      "displayOrder": 2,
-      "displayWidth": 100
-    },
-    {
       "columnName": "COMMON_REQ_USER_ID",
-      "displayOrder": 3,
+      "displayOrder": 2,
       "displayWidth": 50
     },
     {
-      "columnName": "COMMON_REQ_URL",
+      "columnName": "AUDIT_CLAIM_ID",
+      "displayOrder": 3,
+      "displayWidth": 100
+    },
+    {
+      "columnName": "AUDIT_REPORT_TYPE",
       "displayOrder": 4,
-      "displayWidth": 400
+      "displayWidth": 100
+    },
+    {
+      "columnName": "AUDIT_NODE_TYPE",
+      "displayOrder": 5,
+      "displayWidth": 100
     },
     {
       "columnName": "MSG",
@@ -49,6 +54,11 @@
       "columnName": "COMMON_COUNT",
       "displayOrder": 10,
       "displayWidth": 60
+    },
+    {
+      "columnName": "AUDIT_CCC_COMPANY_CODE",
+      "displayOrder": 11,
+      "displayWidth": 100
     }
   ],
   "query": {

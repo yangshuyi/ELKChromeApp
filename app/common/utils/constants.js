@@ -20,10 +20,10 @@ angular.module('common.utils').factory('constants', [function () {
         },
 
         CONFIG: {
-            ES_SERVER_URL: 'http://192.168.200.5:9200',
 
             environments: [{
                 name: 'TEST',
+                esServerUrl: 'http://192.168.200.5:9200',
                 apps: [
                     {name: 'DRP', ips: ['192.168.200.19']},
                     {name: 'INTERFACE', ips: ['192.168.200.13']},
@@ -31,6 +31,7 @@ angular.module('common.utils').factory('constants', [function () {
                 ]
             }, {
                 name: 'PERFORMANCE',
+                esServerUrl: 'http://192.168.200.5:9200',
                 apps: [
                     {name: 'DRP', ips: ['192.168.200.23', '192.168.200.32']},
                     {name: 'INTERFACE', ips: []},
@@ -38,6 +39,7 @@ angular.module('common.utils').factory('constants', [function () {
                 ]
             }, {
                 name: 'PROD',
+                esServerUrl: 'http://172.25.2.13:9200',
                 apps: [
                     {name: 'DRP', ips: []},
                     {name: 'INTERFACE', ips: []},
