@@ -11,6 +11,11 @@
       "displayWidth": 70
     },
     {
+      "columnName": "host",
+      "displayOrder": 2,
+      "displayWidth": 140
+    },
+    {
       "columnName": "COMMON_COUNT",
       "displayOrder": 8,
       "displayWidth": 60
@@ -52,11 +57,6 @@
         {
           "term": {
             "COMMON_REQ_CLIENT_IP.raw": "BatchJob"
-          }
-        },
-        {
-          "prefix": {
-            "host.raw": "192.168.200.19:"
           }
         },
         {

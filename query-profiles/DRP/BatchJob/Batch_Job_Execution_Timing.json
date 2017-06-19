@@ -11,6 +11,11 @@
       "displayWidth": 70
     },
     {
+      "columnName": "host",
+      "displayOrder": 2,
+      "displayWidth": 140
+    },
+    {
       "columnName": "BATCH_JOB_BUSINESS_ID",
       "displayOrder": 5,
       "displayWidth": 160
@@ -67,11 +72,6 @@
         {
           "term": {
             "COMMON_REQ_CLIENT_IP.raw": "BatchJob"
-          }
-        },
-        {
-          "prefix": {
-            "host.raw": "192.168.200.19:"
           }
         },
         {
