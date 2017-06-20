@@ -15,6 +15,9 @@ angular.module('common.businessComponents.model').factory('queryProfileModel', [
         list.push(constructor('DRP-BatchJob执行时间分析', 'query-profiles/DRP/BatchJob/Batch_Job_Execution_Timing.json'));
         list.push(constructor('DRP-BatchJob执行数量分析', 'query-profiles/DRP/BatchJob/Batch_Job_Execution_Count.json'));
 
+
+        list.push(constructor('DRP-BatchJob ES同步 日志查询', 'query-profiles/DRP/BatchJob/Batch_Job_ES_SYN_Flow.json'));
+
         list.push(constructor('DRP-规则日志查询', 'query-profiles/DRP/Rule/Rule_Audit_Report.json'));
 
         list.push(constructor('DRP-基础数据发布日志', 'query-profiles/DRP/MetaData/Meta_Operator_Flow.json'));
