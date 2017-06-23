@@ -11,6 +11,11 @@
       "displayWidth": 70
     },
     {
+      "columnName": "host",
+      "displayOrder": 1,
+      "displayWidth": 70
+    },
+    {
       "columnName": "COMMON_REQ_CLIENT_IP",
       "displayOrder": 2,
       "displayWidth": 100
