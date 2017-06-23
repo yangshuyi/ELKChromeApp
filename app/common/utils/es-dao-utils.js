@@ -36,7 +36,8 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
             if(param.query.bool.should == null){
                 param.query.bool.should = []
             }
-            _.each(hostIps, function(ip){
+            var ips = hostIps.split(',');
+            _.each(ips, function(ip){
                 param.query.bool.should.push({"prefix": {"host.raw": ip}});
             });
         }
