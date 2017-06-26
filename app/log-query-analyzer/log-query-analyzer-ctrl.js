@@ -162,13 +162,12 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
 
                 var queryApp = logQueryAnalyzerService.getQueryApp(profile.content);
 
-                $scope.model.isAppDRPSelected = _.includes( queryApp.positive, 'DRP');
-                $scope.model.isAppPARTSSelected = _.includes( queryApp.positive, 'PARTS');
-                $scope.model.isAppINTERFACESelected = _.includes( queryApp.positive, 'INTERFACE');
+                $scope.model.isAppDRPSelected = _.includes( queryApp, 'DRP');
+                $scope.model.isAppPARTSSelected = _.includes( queryApp, 'PARTS');
+                $scope.model.isAppINTERFACESelected = _.includes( queryApp, 'INTERFACE');
 
-                $scope.model.defaultHostArray = logQueryAnalyzerService.loadDefaultHostSettingByEnv($rootScope.env, queryApp.positive);
+                $scope.model.defaultHostArray = logQueryAnalyzerService.loadDefaultHostSettingByEnv($rootScope.env, queryApp);
                 $scope.model.hosts = $scope.model.defaultHostArray.join(',');
-
 
                 $scope.query();
             });

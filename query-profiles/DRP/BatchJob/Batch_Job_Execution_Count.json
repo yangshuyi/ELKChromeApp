@@ -13,7 +13,7 @@
     {
       "columnName": "host",
       "displayOrder": 2,
-      "displayWidth": 140
+      "displayWidth": 130
     },
     {
       "columnName": "COMMON_COUNT",
@@ -46,28 +46,33 @@
       "displayWidth": 300
     }
   ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "APP.raw": "DRP"
-          }
-        },
-        {
-          "term": {
-            "COMMON_REQ_CLIENT_IP.raw": "BatchJob"
-          }
-        },
-        {
-          "term": {
-            "MSG.raw": "发现有后台任务需要执行"
-          }
+  "@filter": {
+    "and": [
+      {
+        "term": {
+          "COMMON_REQ_USER_ID.raw": ""
         }
-      ],
-      "must_not": [],
-      "should": []
-    }
+      }
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "DRP"
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_CLIENT_IP.raw": "BatchJob"
+        }
+      },
+      {
+        "term": {
+          "MSG.raw": "发现有后台任务需要执行"
+        }
+      }
+    ]
   },
   "from": 0,
   "size": 500,

@@ -17,29 +17,50 @@ angular.module('common.utils').factory("esDaoUtils", ['$q', 'urlUtils', 'constan
             }
         });
         return deferred.promise;
-    }
+    };
 
     /**
      * query log
      */
     function query(env, hostIps, queryContent) {
         var param = JSON.parse(JSON.stringify(queryContent));
-        param = _.omit(param, ['@sources']);
+        _.each(param['@filter']['and'], function(elem){
+            if(elem['term']){
+                //"term": {"COMMON_REQ_CLIENT_IP.raw": ""}
+                _.each(elem['term'], function(value, key){
+                    if(value){
+                        param['filter']['and'].push(elem);
+                    }
+                });
+            }
+            if(elem['range']){
+                //"range": {"@timestamp": {"gt": "2017-06-03T06:40:16.515Z"}}
+                _.each(elem['range'], function(value, key){
+                    if(value && (value.gt || value.gte || value.lt || value.lte)){
+                        param['filter']['and'].push(elem);
+                    }
+                });
+            }
+             //TODO 需要扩展其他逻辑
+        });
+        param = _.omit(param, ['@sources', '@filter']);
 
         if(env){
-            if(param.query.bool.must == null){
-                param.query.bool.must = []
+            if(param.filter.and == null){
+                param.filter.and = [];
             }
-            param.query.bool.must.push({"term": {"ENV.raw": env}});
+            param.filter.and.push({"term": {"ENV.raw": env}});
         }
         if(hostIps){
-            if(param.query.bool.should == null){
-                param.query.bool.should = []
+            if(param.filter.and == null){
+                param.filter.and = [];
             }
+            var or = [];
             var ips = hostIps.split(',');
             _.each(ips, function(ip){
-                param.query.bool.should.push({"prefix": {"host.raw": ip}});
+                or.push({"prefix": {"host.raw": ip}});
             });
+            param.filter.and.push({"or":or});
         }
 
         var deferred = $q.defer();

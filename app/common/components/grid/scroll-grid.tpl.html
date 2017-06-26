@@ -31,7 +31,7 @@
             </tr>
             </thead>
             <tbody ng-if="gridData.length>0">
-            <tr ng-repeat="row in gridData" ng-click="selectRow(row)" ng-class="{'active':row.$selected, 'priority-debug':row.priority=='DEBUG', 'priority-info':row.priority=='INFO', 'priority-warning':row.priority=='WARNING', 'priority-error':row.priority=='ERROR'}">
+            <tr ng-repeat="row in gridData" ng-click="selectRow(row)" ng-class="{'active':row.$selected, 'priority-debug':row.priority=='DEBUG', 'priority-info':row.priority=='INFO', 'priority-warn':row.priority=='WARN', 'priority-error':row.priority=='ERROR'}">
                 <td ng-repeat="col in columns">
                     <div ng-style="col.cellStyle" class='text-ellipsis' ng-if="col.cellTemplate" cell-compiler="col.cellTemplate"></div>
                     <div ng-style="col.cellStyle" class='text-ellipsis' ng-if="!col.cellTemplate" title="{{row[col.field]}}">{{row[col.field]}}</div>

@@ -1,0 +1,2120 @@
+{
+  "claimRuleInfo": {
+    "partTypeMap": {
+      "01": "4S店价",
+      "02": "市场价",
+      "03": "测03价",
+      "04": "测04价"
+    },
+    "overAssemblyPriceParts": null,
+    "auditClaimPartMap": {},
+    "assemblyAndChildPartExistList": [],
+    "assemblyChildPartMapHasRepairOrPaintFee": {},
+    "repeatPartItemsList": [],
+    "repeatLaborItemsList": [],
+    "vin": "LBEFDBEB",
+    "bulletinCode": "BH7165CMZ，BH7165MY，BH7165MX",
+    "mutex4partNames": [],
+    "mutex4categoryNames": [],
+    "relatedMaterialInfoMap": [],
+    "materialRelatedAssistLaborOrPartMaterialCode": [
+      "50",
+      "55"
+    ],
+    "damageReasonIsFloodOrRainstormMaterailCode": [
+      "60",
+      "70"
+    ],
+    "assistLaborRelatedPartLaborHourIds": [
+      -107,
+      -106,
+      106
+    ],
+    "partRelatedAssistLaborInfoMap": [],
+    "paintFeeAfterDiscountSum": 0,
+    "vehiclePaintSum": 0
+  },
+  "claimItemRuleInfo": [
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": null,
+          "standardValue": "5",
+          "valueSource": "02"
+        },
+        "repairPartFlag": {
+          "instantValue": null,
+          "standardValue": "0",
+          "valueSource": "02"
+        },
+        "paintFlag": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": null,
+          "standardValue": "1",
+          "valueSource": "02"
+        },
+        "texture": {
+          "instantValue": "70",
+          "standardValue": "70",
+          "valueSource": "01"
+        },
+        "easyAbradedFlag": {
+          "instantValue": null,
+          "standardValue": "1",
+          "valueSource": "02"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": "40",
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": null,
+          "standardValue": "01",
+          "valueSource": "02"
+        },
+        "partLocationId": {
+          "instantValue": null,
+          "standardValue": "1B",
+          "valueSource": "02"
+        },
+        "partLocation": {
+          "instantValue": null,
+          "standardValue": "1L,1R,1M",
+          "valueSource": "02"
+        },
+        "paintAttachFlag": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 2000,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 2000,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前杠皮",
+        "前保",
+        "前保险杠皮",
+        "前杠面罩",
+        "前保面罩",
+        "前杠蒙皮总成",
+        "前保险杠蒙皮",
+        "前保险杠面罩",
+        "前杠蒙皮",
+        "前杠外皮",
+        "前保外皮",
+        "前保蒙皮"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "isGlassTextureFlag": "1",
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741114619723"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "01",
+          "standardValue": "01",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前保险杠格栅",
+        "前保险杠格栅"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741129067515"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "01",
+          "standardValue": "01",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前保险杠导流板"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741105256569"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "1",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "01",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": "1",
+          "standardValue": null,
+          "valueSource": "01"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 300,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 300,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741126015498"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1C",
+          "standardValue": "1C",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1M",
+          "standardValue": "1L,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": "1",
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 500,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 500,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前保险杠支架（左）",
+        "前保险杠支架（左）"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741117502441"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1C",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 400,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 400,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741128559930"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前杠泡沫",
+        "前保险杠内衬",
+        "前杠内衬",
+        "前保内衬",
+        "前保泡沫"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741126200639"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1C",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741114067752"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前杠骨架",
+        "前保险杠骨架",
+        "前保险杠骨架",
+        "前保险杠内骨架",
+        "前保险杠杠体",
+        "前杠本体",
+        "前保险杠杠体总成",
+        "前杠杠体",
+        "前杠骨架总成",
+        "前杠铁",
+        "前杠铁骨架",
+        "前保险杠本体"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741106412778"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1D",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1M,1R",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741105162514"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": "30",
+          "standardValue": "30",
+          "valueSource": "01"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": "40",
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1D",
+          "standardValue": "1D",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1M,1R",
+          "standardValue": "1M,1R",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "右大灯线束",
+        "前大灯线束（右）",
+        "前大灯线束（右）"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741103028321"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "2",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1D",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1M,1R",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741105410562"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "2",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1C",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1M",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741126105096"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1D",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1M,1R",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741117593533"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1C",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741124897251"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": "10",
+          "standardValue": "10",
+          "valueSource": "01"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": "1B",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": "1L,1R,1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 100,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 100,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "发动机盖撑杆",
+        "发动机罩撑杆",
+        "发动机罩撑杆",
+        "前头盖撑杆",
+        "头盖撑杆",
+        "机盖撑杆总成",
+        "前机盖板撑杆",
+        "前机盖撑杆",
+        "发动机罩盖支撑杆",
+        "机盖支撑杆",
+        "发动机盖支撑杆",
+        "前机盖板支撑杆",
+        "发动机罩盖撑杆",
+        "发动机罩撑杆总成",
+        "前盖板支撑杆",
+        "发动机罩支撑杆",
+        "前机盖支撑杆",
+        "前盖支撑杆",
+        "前引擎盖支撑杆",
+        "前盖撑杆",
+        "前引擎盖撑杆",
+        "机盖撑杆"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741122281969"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": "60",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741117141466"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "2",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": "60",
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1B",
+          "standardValue": "1S",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L,1R,1M",
+          "standardValue": "1L,1R",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "发动机罩减震胶",
+        "发动机罩减震胶"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741121007014"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": "10",
+          "standardValue": "10",
+          "valueSource": "01"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1M",
+          "standardValue": "1M",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1M",
+          "standardValue": "1M",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "发动机罩盖锁体",
+        "前引擎盖锁（下）",
+        "前机盖锁（下）",
+        "前机盖板锁（下）",
+        "前盖锁（下）",
+        "机盖锁（下）",
+        "发动机罩锁（下）",
+        "发动机罩盖锁（下）",
+        "发动机盖锁（下）",
+        "发动机盖锁体",
+        "前引擎盖锁体",
+        "机盖锁体",
+        "发动机罩锁体",
+        "前机盖锁体",
+        "前盖锁体",
+        "前机盖板锁体"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741115653981"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": "10",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1M",
+          "standardValue": null,
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "hasLowerPriceForClaimPartType": "0",
+      "hasLowerPriceForItemPartType": "0",
+      "lowestLocalPriceForClaimPartType": 10,
+      "claimPartTypeName": "4S店价",
+      "lowestLocalPriceForItemPartType": 10,
+      "itemPartTypeName": "4S店价",
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741113777642"
+    },
+    {
+      "partAttributeSources": null,
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741110580443"
+    },
+    {
+      "partAttributeSources": null,
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741116764571"
+    },
+    {
+      "partAttributeSources": null,
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741108414829"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1L",
+          "standardValue": "1L",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1L",
+          "standardValue": "1L",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前轮毂（左）",
+        "前轮毂（左）"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741127591868"
+    },
+    {
+      "partAttributeSources": {
+        "maxQtyByCategory": {
+          "instantValue": "1",
+          "standardValue": "1",
+          "valueSource": "01"
+        },
+        "repairPartFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "paintFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "glassFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "texture": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "easyAbradedFlag": {
+          "instantValue": "0",
+          "standardValue": "0",
+          "valueSource": "01"
+        },
+        "materialCodes": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        },
+        "lossDegree": {
+          "instantValue": "02",
+          "standardValue": "02",
+          "valueSource": "01"
+        },
+        "partLocationId": {
+          "instantValue": "1R",
+          "standardValue": "1R",
+          "valueSource": "01"
+        },
+        "partLocation": {
+          "instantValue": "1R",
+          "standardValue": "1R",
+          "valueSource": "01"
+        },
+        "paintAttachFlag": {
+          "instantValue": null,
+          "standardValue": null,
+          "valueSource": "02"
+        }
+      },
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "aliasNameList": [
+        "前轮毂（右）",
+        "前轮毂（右）"
+      ],
+      "localPriceMap": {
+        "01": 0,
+        "02": 0,
+        "03": 0,
+        "04": 0
+      },
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741102740616"
+    },
+    {
+      "partAttributeSources": null,
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741118938340"
+    },
+    {
+      "partAttributeSources": null,
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741116097625"
+    },
+    {
+      "partAttributeSources": null,
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741111357422"
+    },
+    {
+      "partAttributeSources": null,
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741115337634"
+    },
+    {
+      "partAttributeSources": null,
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741120453554"
+    },
+    {
+      "partAttributeSources": null,
+      "matchedPartNames": "",
+      "matchedInstantPartIds": "",
+      "matchedStandardPartIds": "",
+      "localPriceMap": {},
+      "matchedMaterialNames": [],
+      "localPriceAfterDiscountForChangePart": 0,
+      "partLaborFeeAfterDiscount": 0,
+      "partPaintFeeAfterDiscount": 0,
+      "partRemoveFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscount": 0,
+      "partChangeFeeAfterDiscountForChangeOperation": 0,
+      "partPaintLaborFeeForChangeOperation": 0,
+      "partFeeForChangeOperation": 0,
+      "estimateUnitId": "149741108793818"
+    }
+  ]

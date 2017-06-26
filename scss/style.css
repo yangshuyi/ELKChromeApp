@@ -6057,9 +6057,7 @@ body {
   display: flex;
   align-items: center; }
   .label-field > .caption {
-    width: 100px;
-    text-align: right;
-    margin-right: 10px; }
+    margin: 0px 10px; }
     .label-field > .caption > .required-mark {
       color: red;
       margin-right: 5px; }
@@ -6428,7 +6426,9 @@ body {
   .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-error {
     background-color: red;
     color: white; }
-  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-warning {
+  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-error.active {
+    color: red; }
+  .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-warn {
     background-color: yellow; }
 .log-query-analyzer-content .footer-panel {
   display: flex;

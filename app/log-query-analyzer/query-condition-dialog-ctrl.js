@@ -2,7 +2,7 @@
 angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryConditionDialogCtrl', ['$scope', '$q', 'constants', 'commonDialogProvider', 'queryProfile',
     function ($scope, $q, constants, commonDialogProvider, queryProfile) {
         $scope.onLoad = function () {
-            var queryText = JSON.stringify(queryProfile.content);
+            var queryText = JSON.stringify(queryProfile.content['@filter'], null, 4);
 
             $scope.model = {queryText: queryText}
         };
@@ -29,7 +29,8 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('queryCondition
         $scope.confirm = function () {
             var obj = $scope.verify();
             if(obj){
-                $scope.result = obj;
+                queryProfile.content['@filter'] = obj;
+                $scope.result = queryProfile.content;
                 $scope.dialogApi.close();
             }
         };

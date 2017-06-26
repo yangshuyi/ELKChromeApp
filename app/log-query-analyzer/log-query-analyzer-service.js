@@ -39,24 +39,8 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
         return deferred.promise;
     };
 
-
-    var getQueryEnv = function(content){
-        return queryModel.getQueryTerm(content, 'ENV');
-    };
-
     var getQueryApp = function(content){
         return queryModel.getQueryTerm(content, 'APP');
-    };
-
-    var getQueryHost = function(content){
-        var resultObj = queryModel.getQueryPrefix(content, 'host');
-        _.each(resultObj.positive, function(item, idx){
-            resultObj.positive[idx] = item.substring(0, item.indexOf(":"));
-        });
-        _.each(resultObj.nagtive, function(item, idx){
-            resultObj.nagtive[idx] = item.substring(0, item.indexOf(":"));
-        });
-        return resultObj;
     };
 
     var loadDefaultHostSettingByEnv = function(envName, apps){
@@ -76,9 +60,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
     return {
         loadQueryProfiles: loadQueryProfiles,
         query: query,
-        getQueryEnv: getQueryEnv,
         getQueryApp: getQueryApp,
-        getQueryHost: getQueryHost,
         loadDefaultHostSettingByEnv: loadDefaultHostSettingByEnv,
         fetchIndices: fetchIndices,
     };

@@ -13,7 +13,7 @@
     {
       "columnName": "host",
       "displayOrder": 2,
-      "displayWidth": 140
+      "displayWidth": 130
     },
     {
       "columnName": "BATCH_JOB_BUSINESS_ID",
@@ -61,30 +61,35 @@
       "displayWidth": 300
     }
   ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "APP.raw": "DRP"
-          }
-        },
-        {
-          "term": {
-            "COMMON_REQ_CLIENT_IP.raw": "BatchJob"
-          }
-        },
-        {
-          "range": {
-            "@timestamp": {
-              "gt": "2017-06-03T06:40:16.515Z"
-            }
+  "@filter": {
+    "and": [
+      {
+        "term": {
+          "COMMON_REQ_USER_ID.raw": ""
+        }
+      },
+      {
+        "range": {
+          "@timestamp": {
+            "gt": "2017-06-03T06:40:16.515Z"
           }
         }
-      ],
-      "must_not": [],
-      "should": []
-    }
+      }
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "DRP"
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_CLIENT_IP.raw": "BatchJob"
+        }
+      }
+    ]
   },
   "from": 0,
   "size": 500,

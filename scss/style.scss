@@ -72,7 +72,10 @@
           background-color: red;
           color: white;
         }
-        tr.priority-warning {
+        tr.priority-error.active{
+          color: red;
+        }
+        tr.priority-warn {
           background-color: yellow;
         }
       }

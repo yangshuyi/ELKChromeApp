@@ -13,7 +13,7 @@
     {
       "columnName": "host",
       "displayOrder": 1,
-      "displayWidth": 70
+      "displayWidth": 130
     },
     {
       "columnName": "COMMON_REQ_CLIENT_IP",
@@ -56,30 +56,45 @@
       "displayWidth": 60
     }
   ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "APP.raw": "DRP"
-          }
-        },
-        {
-          "wildcard": {
-            "COMMON_REQ_CLIENT_IP.raw": "*.*"
-          }
-        },
-        {
-          "range": {
-            "@timestamp": {
-              "gt": "2017-06-03T06:40:16.515Z"
-            }
+  "@filter": {
+    "and": [
+      {
+        "term": {
+          "COMMON_REQ_CLIENT_IP.raw": ""
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_USER_ID.raw": ""
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_URL.raw": "/drp/claim/saveClaim"
+        }
+      },
+      {
+        "range": {
+          "@timestamp": {
+            "gt": "2017-06-03T06:40:16.515Z"
           }
         }
-      ],
-      "must_not": [],
-      "should": []
-    }
+      }
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "DRP"
+        }
+      },
+      {
+        "wildcard": {
+          "COMMON_REQ_CLIENT_IP.raw": "*.*"
+        }
+      }
+    ]
   },
   "from": 0,
   "size": 500,
@@ -91,5 +106,6 @@
       }
     }
   ],
-  "aggs": {}
+  "aggs": {
+  }
 }
