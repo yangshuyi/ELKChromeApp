@@ -33,13 +33,15 @@ angular.module('elkChromeApp').config(['$stateProvider', '$urlRouterProvider', '
                     urlUtils.setRootPath($rootScope.esServerUrl);
                     esDaoUtils.connectToEs().then(function(clusterName){
                         if(clusterName){
-                            notifyProvider.notify("连接["+clusterName+"]成功");
+                            notifyProvider.notify("连接["+clusterName+"]成功", 1000, 0.5);
                             $rootScope.isEsConnected = true;
                             $state.go('main.logQueryAnalyzer', {});
+                            $rootScope.$broadcast('initLogQueryAnalyzer');
                         }else{
                             $rootScope.isEsConnected = false;
                             $state.go('main.defaultModule', {});
                         }
+
                     });
                 };
 

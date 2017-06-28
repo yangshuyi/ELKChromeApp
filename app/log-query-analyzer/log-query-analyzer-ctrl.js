@@ -42,10 +42,17 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 $scope.resizeLayout();
             });
 
+            $rootScope.$on('initLogQueryAnalyzer', function(e){
+                $scope.init();
+            });
+
             $scope.init();
         };
 
         $scope.init = function () {
+            $scope.fieldPanelOpenStatus = true;
+            $scope.model.selectedQueryProfile = null;
+
             logQueryAnalyzerService.fetchIndices().then(function (columns) {
                 $scope.columns = _.sortBy(columns, 'columnName');
 
@@ -54,8 +61,17 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                 logQueryAnalyzerService.loadQueryProfiles().then(function (profiles) {
                     $scope.model.queryProfiles = profiles;
                 });
+
+
+                $scope.queryResultGridApi.setGridData([], 0);
+                $scope.renderQueryResultGrid(null);
             });
 
+            $scope.resizeLayout();
+        };
+
+        $scope.toggleFieldPanel = function(){
+            $scope.fieldPanelOpenStatus = !$scope.fieldPanelOpenStatus;
             $scope.resizeLayout();
         };
 
@@ -186,6 +202,8 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
                     sourceItem.cellStyle = {width: sourceItem.displayWidth};
                 });
                 $scope.queryResultGridOptions.columnDefs = profile.content['@sources'];
+            }else{
+                $scope.queryResultGridOptions.columnDefs =[];
             }
         };
 
@@ -220,7 +238,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
             loadingMaskProvider.start('查询中。。。');
             logQueryAnalyzerService.query($rootScope.env, $scope.model.hosts, $scope.model.selectedQueryProfile.content).then(function (rows) {
                 $scope.queryResultGridApi.setGridData(rows, rows.length);
-                notifyProvider.notify("查询到[" + rows.length + "]条结果。");
+                notifyProvider.notify("查询到[" + rows.length + "]条结果。", 1000, 0.5);
 
                 loadingMaskProvider.complete();
             });
@@ -230,8 +248,8 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
         $scope.resizeLayout = function () {
             $timeout(function () {
                 var footerHeight = $('.footer-panel').outerHeight(true);
-                var queryPanelWidth = ($(window).width() - $('.field-panel').width() - 5);
-                $('.query-panel').width(queryPanelWidth);
+                // var queryPanelWidth = ($(window).width() - $('.field-panel').width() - 5);
+                // $('.query-panel').width(queryPanelWidth);
 
                 $scope.columnGridApi.resizeGridLayout(null, $(window).height() - footerHeight - 70);
                 $scope.queryResultGridApi.resizeGridLayout($('.query-result-panel').width(), $(window).height() - footerHeight - 110);

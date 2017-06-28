@@ -42,7 +42,6 @@
 .log-query-analyzer-content {
 
   .field-panel {
-    display: inline-block;
     width: 300px;
 
     .pagination-grid {
@@ -53,7 +52,8 @@
   }
 
   .query-panel {
-    display: inline-block;
+    flex:1;
+    overflow: hidden;
 
     .query-condition-panel {
       display: flex;

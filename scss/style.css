@@ -6411,12 +6411,12 @@ body {
       background-color: red; }
 
 .log-query-analyzer-content .field-panel {
-  display: inline-block;
   width: 300px; }
   .log-query-analyzer-content .field-panel .pagination-grid th {
     border-color: #2a89d8; }
 .log-query-analyzer-content .query-panel {
-  display: inline-block; }
+  flex: 1;
+  overflow: hidden; }
   .log-query-analyzer-content .query-panel .query-condition-panel {
     display: flex; }
   .log-query-analyzer-content .query-panel .query-result-panel .scroll-grid .content-container tr.priority-debug {
