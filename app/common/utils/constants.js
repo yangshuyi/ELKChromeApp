@@ -30,6 +30,14 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'PARTS', ips: ['192.168.200.75']}
                 ]
             }, {
+                name: 'DAILYBUILD',
+                esServerUrl: 'http://192.168.200.5:9200',
+                apps: [
+                    {name: 'DRP', ips: ['192.168.200.80']},
+                    {name: 'INTERFACE', ips: []},
+                    {name: 'PARTS', ips: []}
+                ]
+            }, {
                 name: 'PERFORMANCE',
                 esServerUrl: 'http://192.168.200.5:9200',
                 apps: [
