@@ -38,12 +38,28 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'PARTS', ips: []}
                 ]
             }, {
-                name: 'PROD',
+                name: 'YJ - PROD',
                 esServerUrl: 'http://172.25.2.13:9200',
                 apps: [
                     {name: 'DRP', ips: []},
                     {name: 'INTERFACE', ips: []},
                     {name: 'PARTS', ips: ['172.25.2.2']}
+                ]
+            }, {
+                name: 'UAT',
+                esServerUrl: 'http://172.25.2.13:9200',
+                apps: [
+                    {name: 'DRP', ips: ['172.25.2.7']},
+                    {name: 'INTERFACE', ips: ['172.25.2.7']},
+                    {name: 'PARTS', ips: ['172.25.2.7']}
+                ]
+            }, {
+                name: 'SIT',
+                esServerUrl: 'http://172.25.2.13:9200',
+                apps: [
+                    {name: 'DRP', ips: ['172.25.2.4']},
+                    {name: 'INTERFACE', ips: ['172.25.2.4']},
+                    {name: 'PARTS', ips: ['172.25.2.4']}
                 ]
             }]
         },

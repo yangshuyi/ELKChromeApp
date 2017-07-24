@@ -10,6 +10,7 @@ angular.module('common.businessComponents.model').factory('queryProfileModel', [
     var loadProfileModels = function () {
         var list = [];
         list.push(constructor('DRP-用户请求查询', 'query-profiles/DRP/Flow/User_Request_Flow.json'));
+        list.push(constructor('DRP-用户请求慢日志查询', 'query-profiles/DRP/Flow/User_Request_Slow_Log.json'));
 
         list.push(constructor('DRP-BatchJob日志查询', 'query-profiles/DRP/BatchJob/Batch_Job_Flow.json'));
         list.push(constructor('DRP-BatchJob执行时间分析', 'query-profiles/DRP/BatchJob/Batch_Job_Execution_Timing.json'));

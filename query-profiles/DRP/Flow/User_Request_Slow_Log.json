@@ -1,0 +1,101 @@
+{
+  "@sources": [
+    {
+      "columnName": "@timestamp",
+      "displayOrder": 0,
+      "displayWidth": 160
+    },
+    {
+      "columnName": "APP",
+      "displayOrder": 1,
+      "displayWidth": 70
+    },
+    {
+      "columnName": "host",
+      "displayOrder": 1,
+      "displayWidth": 130
+    },
+    {
+      "columnName": "COMMON_REQ_CLIENT_IP",
+      "displayOrder": 2,
+      "displayWidth": 100
+    },
+    {
+      "columnName": "COMMON_REQ_USER_ID",
+      "displayOrder": 3,
+      "displayWidth": 50
+    },
+    {
+      "columnName": "COMMON_REQ_URL",
+      "displayOrder": 4,
+      "displayWidth": 200
+    },
+    {
+      "columnName": "MSG",
+      "displayOrder": 6,
+      "displayWidth": 700
+    },
+    {
+      "columnName": "COMMON_TIMING",
+      "displayOrder": 9,
+      "displayWidth": 60
+    }
+  ],
+  "@filter": {
+    "and": [
+      {
+        "term": {
+          "COMMON_REQ_CLIENT_IP.raw": ""
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_USER_ID.raw": ""
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_URL.raw": "/drp/claim/saveClaim"
+        }
+      },
+      {
+        "range": {
+          "@timestamp": {
+            "gt": "2017-06-03T06:40:16.515Z"
+          }
+        }
+      }
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "DRP"
+        }
+      },
+      {
+        "term": {
+          "logger_name.raw": "com.cccis.foundation.monitor.aop.SlowLogMonitorAdvice"
+        }
+      },
+      {
+        "wildcard": {
+          "COMMON_REQ_CLIENT_IP.raw": "*.*"
+        }
+      }
+    ]
+  },
+  "from": 0,
+  "size": 500,
+  "sort": [
+    {
+      "timestamp": {
+        "order": "desc",
+        "ignore_unmapped": true
+      }
+    }
+  ],
+  "aggs": {
+  }
+}
