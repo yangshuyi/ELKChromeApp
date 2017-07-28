@@ -127,26 +127,27 @@
       "$$hashKey": "object:417"
     }
   ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "APP.raw": "INTERFACE"
-          }
-        },
-        {
-          "range": {
-            "@timestamp": {
-              "gt": "2017-06-03T06:40:16.515Z"
-            }
+  "@filter": {
+    "and": [
+      {
+        "range": {
+          "@timestamp": {
+            "gt": "2017-06-03T06:40:16.515Z"
           }
         }
-      ],
-      "must_not": [],
-      "should": []
-    }
+      }
+    ]
   },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "INTERFACE"
+        }
+      }
+    ]
+  },
+
   "from": 0,
   "size": 500,
   "sort": [

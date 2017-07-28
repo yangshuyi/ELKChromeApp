@@ -51,23 +51,35 @@
       "displayWidth": 60
     }
   ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "term": {
-            "APP.raw": "DRP"
-          }
-        },
-        {
-          "term": {
-            "COMMON_REQ_CLIENT_IP.raw": "MetaOperator"
+  "@filter": {
+    "and": [
+      {
+        "range": {
+          "@timestamp": {
+            "gt": "2017-06-03T06:40:16.515Z"
           }
         }
-      ],
-      "must_not": [],
-      "should": []
-    }
+      },
+      {
+        "term":{
+          "META_DATA_PROCESS_ID.raw":""
+        }
+      }
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "DRP"
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_CLIENT_IP.raw": "MetaOperator"
+        }
+      }
+    ]
   },
   "from": 0,
   "size": 500,
