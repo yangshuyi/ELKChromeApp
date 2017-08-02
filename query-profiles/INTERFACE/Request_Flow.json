@@ -130,6 +130,9 @@
   "@filter": {
     "and": [
       {
+        "term":{
+          "INTERFACE_CODE.raw":""
+        },
         "range": {
           "@timestamp": {
             "gt": "2017-06-03T06:40:16.515Z"

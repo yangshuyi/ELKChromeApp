@@ -35,6 +35,7 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
         scope: {
             options: '=',
             onRowSelected: '=',
+            onCellSelected: '=',
             onRowDbClicked: '=',
             api: '='
         },
@@ -187,6 +188,13 @@ angular.module('common.components.grid').directive('scrollGrid', ['$timeout', '$
                     $scope.columns[idx + 1].displayOrder = idx + 1;
                 }
                 $('.helper-layer', $element).hide();
+            };
+
+            $scope.selectCell = function(e){
+                var text = $(e.target).html();
+                if ($scope.onCellSelected) {
+                    $scope.onCellSelected(text);
+                }
             };
 
             /*** select 相关逻辑 ***/

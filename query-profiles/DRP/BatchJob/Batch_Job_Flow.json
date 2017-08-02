@@ -69,6 +69,16 @@
         }
       },
       {
+        "term": {
+          "BATCH_JOB_CLIENT_SERVICE_BEAN_NAME.raw": ""
+        }
+      },
+      {
+        "term": {
+          "BATCH_JOB_BUSINESS_ID.raw": ""
+        }
+      },
+      {
         "range": {
           "@timestamp": {
             "gt": "2017-06-03T06:40:16.515Z"

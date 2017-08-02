@@ -207,6 +207,10 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').controller('logQueryAnalyz
             }
         };
 
+        $scope.onCellSelected = function(text){
+            $scope.model.clipboard = text;
+        };
+
         $scope.openQueryConditionDialog = function () {
             dialogProvider.openDialog({
                     templateUrl: 'app/log-query-analyzer/query-condition-dialog.html',

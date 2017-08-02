@@ -19,7 +19,7 @@
                 </div>
                 <div class="ccc-row row">
                     <div class="col-md-12 query-result-panel">
-                        <scroll-grid options="queryResultGridOptions" api="queryResultGridApi"></scroll-grid>
+                        <scroll-grid options="queryResultGridOptions" api="queryResultGridApi" on-cell-selected="onCellSelected"></scroll-grid>
                     </div>
                 </div>
             </div>
@@ -34,10 +34,12 @@
             </div>
         </label-field>
         <label-field caption="HOST(s)：">
-            <text-field ng-model="model.hosts" type="text" style="width: 500px;"/>
+            <text-field ng-model="model.hosts" type="text" style="width: 200px;"/>
         </label-field>
-        <div style="flex:1"></div>
         <div>排序：{{model.profileSortInfo}}</div>
         <div>最大记录数：{{model.profileQuerySize}}</div>
+        <label-field caption="选择内容：" style="flex:1">
+            <text-field ng-model="model.clipboard" type="text"/>
+        </label-field>
     </div>
 </div>
