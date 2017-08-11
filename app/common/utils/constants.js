@@ -46,12 +46,11 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'PARTS', ips: []}
                 ]
             }, {
-                name: 'YJ - PROD',
-                esServerUrl: 'http://172.25.2.13:9200',
+                name: 'PROD',
+                esServerUrl: 'http://172.25.2.8:9200',
                 apps: [
-                    {name: 'DRP', ips: []},
-                    {name: 'INTERFACE', ips: []},
-                    {name: 'PARTS', ips: ['172.25.2.2']}
+                    {name: 'DRP', ips: ['172.25.2.2','172.25.2.3']},
+                    {name: 'INTERFACE', ips: ['172.25.2.5','172.25.2.6']}
                 ]
             }, {
                 name: 'UAT',

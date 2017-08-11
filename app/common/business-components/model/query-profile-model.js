@@ -24,6 +24,7 @@ angular.module('common.businessComponents.model').factory('queryProfileModel', [
         list.push(constructor('DRP-基础数据发布日志', 'query-profiles/DRP/MetaData/Meta_Operator_Flow.json'));
 
         list.push(constructor('INTERFACE-日志查询', 'query-profiles/INTERFACE/Request_Flow.json'));
+        list.push(constructor('INTERFACE-DRP日志处理查询', 'query-profiles/INTERFACE/DRP_Consume_Flow.json'));
 
         list.push(constructor('PARTS-用户请求处理', 'query-profiles/PARTS/Flow/User_Request_Flow.json'));
 

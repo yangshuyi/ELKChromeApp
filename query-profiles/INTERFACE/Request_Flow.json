@@ -49,10 +49,10 @@
       "displayName": "接口Code",
       "field": "INTERFACE_CODE",
       "headStyle": {
-        "width": 100
+        "width": 200
       },
       "cellStyle": {
-        "width": 100
+        "width": 200
       },
       "$$hashKey": "object:412"
     },
@@ -133,10 +133,8 @@
         "term":{
           "INTERFACE_CODE.raw":""
         },
-        "range": {
-          "@timestamp": {
-            "gt": "2017-06-03T06:40:16.515Z"
-          }
+        "term":{
+          "REPAIR_ORDER_NO.raw":""
         }
       }
     ]

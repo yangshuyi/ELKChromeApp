@@ -148,6 +148,7 @@ angular.module('common.utils').factory('urlUtils', ['$location', 'Restangular', 
             }
             console.log(data.statusText);
         } else {
+            dialogProvider.showAppErrorDialog(data.statusText);
             console.error(data.statusText);
         }
     }
