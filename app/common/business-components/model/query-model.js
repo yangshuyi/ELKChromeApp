@@ -379,12 +379,13 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
         }
         var queryName = column.queryName;
 
-        _.each(content.filter.and, function (element) {
-            if (element['term'] != null && element['term'][queryName] != null) {
-                result.push(element['term'][queryName]);
-            }
-        });
-
+        if(content.filter.and){
+            _.each(content.filter.and, function (element) {
+                if (element['term'] != null && element['term'][queryName] != null) {
+                    result.push(element['term'][queryName]);
+                }
+            });
+        }
         return result;
     };
 

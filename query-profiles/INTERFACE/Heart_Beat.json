@@ -1,0 +1,186 @@
+{
+  "@sources": [
+    {
+      "columnName": "@timestamp",
+      "displayOrder": 0,
+      "displayWidth": 160,
+      "displayName": "时间戳(中国)",
+      "field": "@timestamp",
+      "headStyle": {
+        "width": 160
+      },
+      "cellStyle": {
+        "width": 160
+      },
+      "$$hashKey": "object:409"
+    },
+    {
+      "columnName": "APP",
+      "displayOrder": 1,
+      "displayWidth": 70,
+      "displayName": "应用",
+      "field": "APP",
+      "headStyle": {
+        "width": 70
+      },
+      "cellStyle": {
+        "width": 70
+      },
+      "$$hashKey": "object:410"
+    },
+    {
+      "columnName": "REPAIR_ORDER_NO",
+      "displayOrder": 3,
+      "displayWidth": 150,
+      "displayName": "接口-工单号",
+      "field": "REPAIR_ORDER_NO",
+      "headStyle": {
+        "width": 150
+      },
+      "cellStyle": {
+        "width": 150
+      },
+      "$$hashKey": "object:411"
+    },
+    {
+      "columnName": "INTERFACE_CODE",
+      "displayOrder": 2,
+      "displayWidth": 100,
+      "displayName": "接口Code",
+      "field": "INTERFACE_CODE",
+      "headStyle": {
+        "width": 200
+      },
+      "cellStyle": {
+        "width": 200
+      },
+      "$$hashKey": "object:412"
+    },
+    {
+      "columnName": "MSG",
+      "displayOrder": 4,
+      "displayWidth": 300,
+      "displayName": "日志",
+      "field": "MSG",
+      "headStyle": {
+        "width": 300
+      },
+      "cellStyle": {
+        "width": 300
+      },
+      "$$hashKey": "object:413"
+    },
+    {
+      "columnName": "stack_trace",
+      "displayOrder": 5,
+      "displayWidth": 300,
+      "displayName": "StackTrace",
+      "field": "stack_trace",
+      "headStyle": {
+        "width": 300
+      },
+      "cellStyle": {
+        "width": 300
+      },
+      "$$hashKey": "object:414"
+    },
+    {
+      "columnName": "COMMON_REQ_TIMING",
+      "displayOrder": 6,
+      "displayWidth": 60,
+      "displayName": "请求耗时",
+      "field": "COMMON_REQ_TIMING",
+      "headStyle": {
+        "width": 60
+      },
+      "cellStyle": {
+        "width": 60
+      },
+      "$$hashKey": "object:415"
+    },
+    {
+      "columnName": "COMMON_TIMING",
+      "displayOrder": 7,
+      "displayWidth": 60,
+      "displayName": "时间统计",
+      "field": "COMMON_TIMING",
+      "headStyle": {
+        "width": 60
+      },
+      "cellStyle": {
+        "width": 60
+      },
+      "$$hashKey": "object:416"
+    },
+    {
+      "columnName": "COMMON_COUNT",
+      "displayOrder": 8,
+      "displayWidth": 60,
+      "displayName": "数量统计",
+      "field": "COMMON_COUNT",
+      "headStyle": {
+        "width": 60
+      },
+      "cellStyle": {
+        "width": 60
+      },
+      "$$hashKey": "object:417"
+    }
+  ],
+  "@filter": {
+    "and": [
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "or": [
+          {
+            "and": [
+              {
+                "term": {
+                  "APP.raw": "DRP"
+                }
+              },
+              {
+                "prefix": {
+                  "COMMON_REQ_USER_ID.raw": "HearBeat"
+                }
+              },
+              {
+                "term": {
+                  "COMMON_REQ_CLIENT_IP.raw": "Interface"
+                }
+              }
+            ]
+          },
+          {
+            "and": [
+              {
+                "term": {
+                  "APP.raw": "INTERFACE"
+                }
+              },
+              {
+                "prefix": {
+                  "INTERFACE_CODE.raw": "HearBeat"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "from": 0,
+  "size": 500,
+  "sort": [
+    {
+      "timestamp": {
+        "order": "desc",
+        "ignore_unmapped": true
+      }
+    }
+  ],
+  "aggs": {}
+}
