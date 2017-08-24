@@ -70,7 +70,7 @@
       },
       {
         "term": {
-          "COMMON_REQ_URL.raw": "/drp/claim/saveClaim"
+          "COMMON_REQ_URL.raw": ""
         }
       },
       {
