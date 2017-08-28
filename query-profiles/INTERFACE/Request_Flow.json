@@ -45,29 +45,17 @@
     {
       "columnName": "INTERFACE_CODE",
       "displayOrder": 2,
-      "displayWidth": 100,
+      "displayWidth": 150,
       "displayName": "接口Code",
       "field": "INTERFACE_CODE",
-      "headStyle": {
-        "width": 200
-      },
-      "cellStyle": {
-        "width": 200
-      },
       "$$hashKey": "object:412"
     },
     {
       "columnName": "MSG",
       "displayOrder": 4,
-      "displayWidth": 300,
+      "displayWidth": 350,
       "displayName": "日志",
       "field": "MSG",
-      "headStyle": {
-        "width": 300
-      },
-      "cellStyle": {
-        "width": 300
-      },
       "$$hashKey": "object:413"
     },
     {

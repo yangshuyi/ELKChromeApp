@@ -53,6 +53,13 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'INTERFACE', ips: ['172.25.2.5','172.25.2.6']}
                 ]
             }, {
+                name: 'PREPROD',
+                esServerUrl: 'http://172.25.2.13:9200',
+                apps: [
+                    {name: 'DRP', ips: ['172.25.2.14']},
+                    {name: 'INTERFACE', ips: ['172.25.2.14']}
+                ]
+            }, {
                 name: 'UAT',
                 esServerUrl: 'http://172.25.2.13:9200',
                 apps: [
