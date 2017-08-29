@@ -53,7 +53,7 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'INTERFACE', ips: ['172.25.2.5','172.25.2.6']}
                 ]
             }, {
-                name: 'PREPROD',
+                name: 'PreProd',
                 esServerUrl: 'http://172.25.2.13:9200',
                 apps: [
                     {name: 'DRP', ips: ['172.25.2.14']},
@@ -75,12 +75,12 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'INTERFACE', ips: ['172.25.2.4']},
                     {name: 'PARTS', ips: ['172.25.2.4']}
                 ]
-            }, {
-                name: 'DEMO',
-                esServerUrl: 'http://172.25.2.13:9200',
-                apps: [
-                    {name: 'DRP', ips: ['172.25.2.14']}
-                ]
+            // }, {
+            //     name: 'DEMO',
+            //     esServerUrl: 'http://172.25.2.13:9200',
+            //     apps: [
+            //         {name: 'DRP', ips: ['172.25.2.14']}
+            //     ]
             }]
         },
 
