@@ -46,18 +46,28 @@
       "displayWidth": 50
     },
     {
+      "columnName": "COMMON_REQ_ID",
+      "displayOrder": 5,
+      "displayWidth": 100
+    },
+    {
       "columnName": "COMMON_TIMING",
       "displayOrder": 9,
       "displayWidth": 60
     },
     {
+      "columnName": "EXCEPTION_ID",
+      "displayOrder": 10,
+      "displayWidth": 100
+    },
+    {
       "columnName": "MSG",
-      "displayOrder": 6,
+      "displayOrder": 11,
       "displayWidth": 300
     },
     {
       "columnName": "stack_trace",
-      "displayOrder": 10,
+      "displayOrder": 12,
       "displayWidth": 300
     }
   ],

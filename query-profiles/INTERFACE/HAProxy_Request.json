@@ -1,0 +1,80 @@
+{
+  "@sources": [
+    {
+      "columnName": "@timestamp",
+      "displayName": "时间戳(中国)",
+      "displayOrder": 0,
+      "displayWidth": 160
+    },
+    {
+      "columnName": "APP",
+      "displayName": "应用",
+      "displayOrder": 1,
+      "displayWidth": 70
+    },
+    {
+      "columnName": "client_ip",
+      "displayName": "客户IP",
+      "displayOrder": 2,
+      "displayWidth": 100
+    },
+    {
+      "columnName": "accept_date",
+      "displayName": "请求时间",
+      "displayOrder": 1,
+      "displayWidth": 130
+    },
+    {
+      "columnName": "COMMON_REQ_USER_ID",
+      "displayName": "请求标识",
+      "displayOrder": 3,
+      "displayWidth": 150
+    },
+    {
+      "columnName": "http_status_code",
+      "displayName": "请求结果",
+      "displayOrder": 3,
+      "displayWidth": 50
+    },
+    {
+      "columnName": "message",
+      "displayName": "日志",
+      "displayOrder": 6,
+      "displayWidth": 300
+    }
+  ],
+  "@filter": {
+    "and": [
+      {
+        "term": {
+          "http_status_code.raw": ""
+        }
+      }
+    ]
+  },
+  "filter": {
+    "and": [
+      {
+        "term": {
+          "APP.raw": "INTERFACE"
+        }
+      },
+      {
+        "term": {
+          "COMMON_REQ_USER_ID.raw": "HAPROXY"
+        }
+      }
+    ]
+  },
+  "from": 0,
+  "size": 500,
+  "sort": [
+    {
+      "timestamp": {
+        "order": "desc",
+        "ignore_unmapped": true
+      }
+    }
+  ],
+  "aggs": {}
+}

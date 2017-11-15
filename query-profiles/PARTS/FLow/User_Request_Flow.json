@@ -26,6 +26,12 @@
       "displayWidth": 400
     },
     {
+      "columnName": "COMMON_REQ_ID",
+      "displayName": "请求标识",
+      "displayOrder": 5,
+      "displayWidth": 100
+    },
+    {
       "columnName": "MSG",
       "displayOrder": 6,
       "displayWidth": 300

@@ -22,6 +22,7 @@
     },
     {
       "columnName": "COMMON_REQ_USER_ID",
+      "displayName": "请求标识",
       "displayOrder": 3,
       "displayWidth": 50
     },
@@ -29,6 +30,11 @@
       "columnName": "COMMON_REQ_URL",
       "displayOrder": 4,
       "displayWidth": 200
+    },
+    {
+      "columnName": "COMMON_REQ_ID",
+      "displayOrder": 5,
+      "displayWidth": 100
     },
     {
       "columnName": "MSG",

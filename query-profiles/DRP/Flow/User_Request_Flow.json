@@ -31,28 +31,39 @@
       "displayWidth": 400
     },
     {
-      "columnName": "MSG",
-      "displayOrder": 6,
-      "displayWidth": 300
+      "columnName": "COMMON_REQ_ID",
+      "displayName": "请求标识",
+      "displayOrder": 5,
+      "displayWidth": 100
     },
     {
-      "columnName": "stack_trace",
+      "columnName": "EXCEPTION_ID",
+      "displayOrder": 6,
+      "displayWidth": 100
+    },
+    {
+      "columnName": "MSG",
       "displayOrder": 7,
       "displayWidth": 300
     },
     {
-      "columnName": "COMMON_REQ_TIMING",
+      "columnName": "stack_trace",
       "displayOrder": 8,
-      "displayWidth": 60
+      "displayWidth": 300
     },
     {
-      "columnName": "COMMON_TIMING",
+      "columnName": "COMMON_REQ_TIMING",
       "displayOrder": 9,
       "displayWidth": 60
     },
     {
-      "columnName": "COMMON_COUNT",
+      "columnName": "COMMON_TIMING",
       "displayOrder": 10,
+      "displayWidth": 60
+    },
+    {
+      "columnName": "COMMON_COUNT",
+      "displayOrder": 11,
       "displayWidth": 60
     }
   ],

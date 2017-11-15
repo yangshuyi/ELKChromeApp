@@ -16,6 +16,11 @@
       "displayWidth": 50
     },
     {
+      "columnName": "COMMON_REQ_ID",
+      "displayOrder": 5,
+      "displayWidth": 100
+    },
+    {
       "columnName": "AUDIT_CLAIM_ID",
       "displayOrder": 3,
       "displayWidth": 100

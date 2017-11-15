@@ -29,6 +29,12 @@
       "$$hashKey": "object:410"
     },
     {
+      "columnName": "COMMON_REQ_ID",
+      "displayName": "请求标识",
+      "displayOrder": 5,
+      "displayWidth": 100
+    },
+    {
       "columnName": "REPAIR_ORDER_NO",
       "displayOrder": 3,
       "displayWidth": 150,

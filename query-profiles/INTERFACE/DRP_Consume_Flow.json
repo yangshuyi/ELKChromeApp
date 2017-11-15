@@ -29,6 +29,11 @@
       "displayWidth": 150
     },
     {
+      "columnName": "COMMON_REQ_ID",
+      "displayOrder": 5,
+      "displayWidth": 100
+    },
+    {
       "columnName": "BUSINESS_NO",
       "displayName": "业务号",
       "displayOrder": 3,

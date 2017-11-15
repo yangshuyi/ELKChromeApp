@@ -45,7 +45,7 @@ angular.module('elkChromeApp.logQueryAnalyzerModule').factory("logQueryAnalyzerS
 
     var loadDefaultHostSettingByEnv = function(envName, apps){
         var envObj = _.find(constants.CONFIG.environments, {name:envName});
-        var hosts = [];
+        var hosts = ['0.0.0.0'];
         if(envObj){
             _.each(apps, function(app){
                 var appObj = _.find(envObj.apps, {name:app});

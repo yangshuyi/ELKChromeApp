@@ -128,6 +128,18 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                     displayWidth: 50,
                 },
             },
+            "COMMON_REQ_ID":{
+                columnName: "COMMON_REQ_ID",
+                queryName: 'COMMON_REQ_ID.raw',
+                caption: {
+                    default: '请求标识',
+                },
+                defaultSetting: {
+                    $checked: true,
+                    displayOrder: 0,
+                    displayWidth: 100,
+                },
+            },
             "COMMON_TIMING": {
                 columnName: "COMMON_TIMING",
                 queryName: 'COMMON_TIMING.raw',
@@ -138,6 +150,19 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                     $checked: false,
                     displayOrder: 0,
                     displayWidth: 60,
+                },
+            },
+            "EXCEPTION_ID": {
+                columnName: "EXCEPTION_ID",
+                queryName: 'EXCEPTION_ID.raw',
+                defaultChecked: true,
+                caption: {
+                    default: '错误标识',
+                },
+                defaultSetting: {
+                    $checked: false,
+                    displayOrder: 0,
+                    displayWidth: 500,
                 },
             },
             "MSG": {
