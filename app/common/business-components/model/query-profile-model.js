@@ -32,6 +32,8 @@ angular.module('common.businessComponents.model').factory('queryProfileModel', [
         list.push(constructor('PARTS-PIT请求处理', 'query-profiles/PARTS/PIT/PIT_Import_Request_Flow.json'));
         list.push(constructor('PARTS-PIT数据处理', 'query-profiles/PARTS/PIT/PIT_Import_Process_Quartz_Task.json'));
 
+        list.push(constructor('DASHBOARD-用户请求查询', 'query-profiles/DASHBOARD/Flow/User_Request_Flow.json'));
+
         list.push(constructor('STATISTICS-用户请求查询', 'query-profiles/STATISTICS/Flow/User_Request_Flow.json'));
 
         var promiseArray = [];

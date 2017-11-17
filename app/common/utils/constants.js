@@ -28,7 +28,8 @@ angular.module('common.utils').factory('constants', [function () {
                     {name: 'DRP', ips: ['192.168.200.19']},
                     {name: 'INTERFACE', ips: ['192.168.200.13']},
                     {name: 'PARTS', ips: ['192.168.200.75']},
-                    {name: 'DRP-STATISTICS', ips: ['192.168.200.14']}
+                    {name: 'DRP-STATISTICS', ips: ['192.168.200.14']},
+                    {name: 'DASHBOARD', ips: ['192.168.200.13']}
                 ]
             }, {
                 name: 'DAILYBUILD',
