@@ -137,7 +137,7 @@ angular.module('common.businessComponents.model').factory('queryModel', [functio
                 defaultSetting: {
                     $checked: true,
                     displayOrder: 0,
-                    displayWidth: 100,
+                    displayWidth: 260,
                 },
             },
             "COMMON_TIMING": {

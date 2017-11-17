@@ -28,12 +28,12 @@
     {
       "columnName": "COMMON_REQ_ID",
       "displayName": "请求标识",
-      "displayOrder": 5,
-      "displayWidth": 100
+      "displayOrder": 4,
+      "displayWidth": 260
     },
     {
       "columnName": "COMMON_REQ_URL",
-      "displayOrder": 4,
+      "displayOrder": 5,
       "displayWidth": 400
     },
     {
@@ -88,7 +88,7 @@
         "range": {
           "@timestamp": {
             "gte": "2017-06-03T06:40:16.515Z",
-            "lte": ""
+            "lte": "2020-06-03T06:40:16.515Z"
           }
         }
       }
